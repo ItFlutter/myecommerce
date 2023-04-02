@@ -1,49 +1,43 @@
 import 'package:ecommerce/core/class/statuscode.dart';
 import 'package:ecommerce/core/constant/routes.dart';
-import 'package:ecommerce/data/datasource/remote/auth/signup.dart';
+import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
+import 'package:ecommerce/data/datasource/remote/forgetpassword/resetpassword.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/functions/handlingdatacontroller.dart';
-
-abstract class SignUpController extends GetxController {
-  signUp();
-  goToSignIn();
+abstract class ResetPasswordController extends GetxController {
+  goToSuccessPassword();
 }
 
-class SignUpControllerImp extends SignUpController {
+class ResetPasswordControllerImp extends ResetPasswordController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
-  late TextEditingController username;
-  late TextEditingController email;
-  late TextEditingController phone;
   late TextEditingController password;
+  late TextEditingController repassword;
   StatusRequest statusRequest = StatusRequest.none;
-  SignupData signupData = SignupData(Get.find());
-  List data = [];
+  ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
+  late String email;
   @override
-  goToSignIn() {
-    Get.offNamed(AppRoute.login);
-  }
-
-  @override
-  signUp() async {
+  goToSuccessPassword() async {
+    if (password.text != repassword.text) {
+      return Get.defaultDialog(title: "47".tr, middleText: "55".tr);
+    }
     var formdata = formstate.currentState;
     if (formdata!.validate()) {
       print("Valid");
       statusRequest = StatusRequest.loading;
       update();
-      var response = await signupData.postdata(
-          username.text, password.text, email.text, phone.text);
+      var response = await resetPasswordData.postdata(email, password.text);
       print("=====================================Controller ${response}");
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "failure") {
           statusRequest = StatusRequest.failure;
-          Get.defaultDialog(title: "47".tr, middleText: "52".tr);
+          Get.defaultDialog(title: "warning", middleText: "Try Again");
         } else {
           // data.addAll(response['status']);
-          Get.offNamed(AppRoute.verifyCodeSignUp,
-              arguments: {'email': email.text});
+          Get.offNamed(
+            AppRoute.successResetPassword,
+          );
         }
       }
       update();
@@ -55,19 +49,17 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   void onInit() {
-    username = TextEditingController();
-    email = TextEditingController();
-    phone = TextEditingController();
+    email = Get.arguments['email'];
     password = TextEditingController();
+    repassword = TextEditingController();
+
     super.onInit();
   }
 
   @override
   void dispose() {
-    username.dispose();
-    email.dispose();
-    phone.dispose();
     password.dispose();
+    repassword.dispose();
     super.dispose();
   }
 }

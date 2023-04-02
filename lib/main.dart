@@ -1,8 +1,7 @@
 import 'package:ecommerce/routes.dart';
-import 'package:ecommerce/view/screen/language.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'binding.dart';
+import 'bindings/initialbindings.dart';
 import 'core/localization/changelocal.dart';
 import 'core/localization/translation.dart';
 import 'core/sevices/sevices.dart';
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
-      // initialBinding: MyBinding(),
+      initialBinding: InitialBindings(),
       locale: controller.language,
       translations: MyTranslation(),
       debugShowCheckedModeBanner: false,

@@ -35,7 +35,7 @@ class MyTranslation extends Translations {
           "29": "تحقق",
           "30": "رمز التحقق",
           "31": "كود التحقق",
-          "32": "الرجاء إدخال رمز الكود المرسل إلى \nahmad@gmal.com",
+          "32": "الرجاء إدخال رمز الكود المرسل إلى \n",
           "33": "إعادة تعيين كلمة المرور",
           "34": "كلمة المرور الجديدة",
           "35": "الرجاء إدخال كلمة المرور الجديدة",
@@ -55,6 +55,12 @@ class MyTranslation extends Translations {
           "48": "هل أنت متأكد من الخروج",
           "49": "تأكيد",
           "50": "الغاء",
+          "51":
+              "البريد الإلكتروني أو كلمة المرور غير صحيحة أو لم يتم التحقق من البريد الإلكتروني",
+          "52": "رقم الهاتف أو البريد الإلكتروني موجود بالفعل",
+          "53": "رمز التحقق غير صحيح",
+          "54": "البريد الإلكتروني غير موجود",
+          "55": "كلمة السر ليست متطابقة",
         },
         "en": {
           "1": "Choose Language",
@@ -89,7 +95,7 @@ class MyTranslation extends Translations {
           "29": "Check",
           "30": "Verification Code",
           "31": "Check code",
-          "32": "please Enter The Digit Code Sent To\nahmad@gmal.com",
+          "32": "please Enter The Digit Code Sent To\n",
           "33": "Reset Password",
           "34": "New Password",
           "35": "Please Enter new Password",
@@ -109,6 +115,11 @@ class MyTranslation extends Translations {
           "48": "Are You Sure To Exit",
           "49": "Confirm",
           "50": "Cancel",
+          "51": "Email Or Password Not Correct Or Email Not Verfied",
+          "52": "Phone Number Or Email Already Exists",
+          "53": "Verify Code Not Correct",
+          "54": "Email Not Found",
+          "55": "Password Not Match",
         },
       };
 }
