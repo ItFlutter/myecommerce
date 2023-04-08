@@ -1,6 +1,8 @@
 import 'package:ecommerce/core/class/statuscode.dart';
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/core/sevices/sevices.dart';
 import 'package:ecommerce/data/datasource/remote/auth/login.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +14,7 @@ abstract class LoginController extends GetxController {
 }
 
 class LoginControllerImp extends LoginController {
+  MyServices myServices = Get.find();
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   late TextEditingController email;
   late TextEditingController password;
@@ -50,6 +53,15 @@ class LoginControllerImp extends LoginController {
           Get.defaultDialog(title: "47".tr, middleText: "51".tr);
         } else {
           // data.addAll(response['status']);
+          myServices.sharedPreferences
+              .setString("id", "${response['data']['users_id']}");
+          myServices.sharedPreferences
+              .setString("username", "${response['data']['users_name']}");
+          myServices.sharedPreferences
+              .setString("email", "${response['data']['	users_email']}");
+          myServices.sharedPreferences
+              .setString("phone", "${response['data']['users_phone']}");
+          myServices.sharedPreferences.setString("step", "2");
           Get.offNamed(
             AppRoute.homepage,
           );
@@ -66,6 +78,10 @@ class LoginControllerImp extends LoginController {
   void onInit() {
     email = TextEditingController();
     password = TextEditingController();
+    FirebaseMessaging.instance.getToken().then((value) {
+      print(value);
+      String? token = value;
+    });
     super.onInit();
   }
 

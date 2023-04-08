@@ -1,5 +1,3 @@
-import 'package:ecommerce/test.dart';
-import 'package:ecommerce/test_view.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/resetpassword.dart';
 import 'package:ecommerce/view/screen/auth/signup.dart';
@@ -7,13 +5,14 @@ import 'package:ecommerce/view/screen/auth/forgetpassword/successresetpassword.d
 import 'package:ecommerce/view/screen/auth/successsignup.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/verifycode.dart';
 import 'package:ecommerce/view/screen/auth/verifycodesignup.dart';
-import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
 import 'package:get/get.dart';
 
 import 'core/constant/routes.dart';
 import 'core/middleware/mymiddleware.dart';
 import 'view/screen/auth/login.dart';
+import 'view/screen/homescreen.dart';
 import 'view/screen/onboarding.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -35,5 +34,6 @@ List<GetPage<dynamic>>? routes = [
   //OnBoarding
   GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
   //Home
-  GetPage(name: AppRoute.homepage, page: () => const HomePage()),
+  GetPage(name: AppRoute.homepage, page: () => const HomeScreen()),
+  GetPage(name: AppRoute.items, page: () => const Items()),
 ];
