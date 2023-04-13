@@ -22,23 +22,23 @@ class HomePage extends StatelessWidget {
           child: ListView(
             children: [
               CustomAppBar(
-                  titleappbar: "Find Product",
+                  titleappbar: "56".tr,
                   onPressedIcon: () {},
                   onPressedSearch: () {}),
-              const CustomCardHome(
-                title: "A summer surprise",
-                body: "Cashback 20%",
+              CustomCardHome(
+                title: "57".tr,
+                body: "58".tr,
               ),
-              const CustomTitleHome(
-                title: "Categories",
+              CustomTitleHome(
+                title: "59".tr,
               ),
               const ListCategoriesHome(),
-              const CustomTitleHome(
-                title: "Product for you",
+              CustomTitleHome(
+                title: "60".tr,
               ),
               const ListItemsHome(),
-              const CustomTitleHome(
-                title: "offer",
+              CustomTitleHome(
+                title: "61".tr,
               ),
               const ListItemsHome(),
             ],

@@ -8,10 +8,11 @@ import 'package:get/get.dart';
 abstract class HomeController extends GetxController {
   initialData();
   getData();
-  goToItems(List categories, int selectedCat);
+  goToItems(List categories, int selectedCat, String categoriesId);
 }
 
 class HomeControllerImp extends HomeController {
+  String? lang;
   List categories = [];
   List items = [];
   late StatusRequest statusRequest;
@@ -21,6 +22,7 @@ class HomeControllerImp extends HomeController {
   String? id;
   @override
   initialData() {
+    lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
     id = myServices.sharedPreferences.getString("id");
   }
@@ -43,9 +45,12 @@ class HomeControllerImp extends HomeController {
   }
 
   @override
-  goToItems(List categories, int selectedCat) {
-    Get.toNamed(AppRoute.items,
-        arguments: {"categories": categories, "selectedcat": selectedCat});
+  goToItems(List categories, int selectedCat, String categoriesId) {
+    Get.toNamed(AppRoute.items, arguments: {
+      "categories": categories,
+      "selectedcat": selectedCat,
+      "categoriesId": categoriesId
+    });
   }
 
   @override

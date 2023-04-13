@@ -11,25 +11,25 @@ class HomeScreenControllerImp extends HomeScreenController {
     const HomePage(),
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         Center(
-          child: Text("Settings"),
+          child: Text("63".tr),
         )
       ],
     ),
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         Center(
-          child: Text("Profile"),
+          child: Text("64".tr),
         )
       ],
     ),
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         Center(
-          child: Text("Favorite"),
+          child: Text("65".tr),
         )
       ],
     ),

@@ -14,6 +14,7 @@ import 'core/middleware/mymiddleware.dart';
 import 'view/screen/auth/login.dart';
 import 'view/screen/homescreen.dart';
 import 'view/screen/onboarding.dart';
+import 'view/screen/productdetails.dart';
 
 List<GetPage<dynamic>>? routes = [
   // GetPage(name: "/", page: () => const TestView()),
@@ -36,4 +37,5 @@ List<GetPage<dynamic>>? routes = [
   //Home
   GetPage(name: AppRoute.homepage, page: () => const HomeScreen()),
   GetPage(name: AppRoute.items, page: () => const Items()),
+  GetPage(name: AppRoute.productdetails, page: () => const ProductDetails()),
 ];

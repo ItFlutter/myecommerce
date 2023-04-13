@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/functions/translatedatabase.dart';
 import 'package:ecommerce/data/model/categoriesmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,7 +36,7 @@ class Categories extends GetView<ItemsControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        controller.changeCat(i);
+        controller.changeCat(i, categoriesmodel.categoriesId!);
       },
       child: Column(
         children: [
@@ -49,7 +50,7 @@ class Categories extends GetView<ItemsControllerImp> {
                               color: AppColor.primaryColor, width: 3)))
                   : null,
               child: Text(
-                "${categoriesmodel.categoriesName}",
+                "${translateDatabase(categoriesmodel.categoriesNameAr, categoriesmodel.categoriesName)}",
                 style: const TextStyle(fontSize: 20, color: AppColor.grey2),
               ),
             ),
