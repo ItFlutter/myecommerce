@@ -1,5 +1,4 @@
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/core/class/statuscode.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
@@ -66,6 +65,21 @@ class VerifyCodeSignUp extends StatelessWidget {
                           controller.goToSuccessSignUp();
                         }, // end onSubmit
                       ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Center(
+                        child: InkWell(
+                          onTap: () {
+                            controller.resend();
+                          },
+                          child: const Text(
+                            "Resend Verfiy Code",
+                            style: TextStyle(
+                                fontSize: 20, color: AppColor.primaryColor),
+                          ),
+                        ),
+                      )
                     ]),
                   ),
                 )));

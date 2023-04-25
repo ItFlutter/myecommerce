@@ -1,6 +1,7 @@
+import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/data/model/itemsmodel.dart';
 import 'package:ecommerce/view/widget/customappbar.dart';
 import 'package:ecommerce/view/widget/items/customlistitems.dart';
@@ -14,14 +15,18 @@ class Items extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ItemsControllerImp());
+    FavoriteControllerImp controllerFav = Get.put(FavoriteControllerImp());
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(15),
         child: ListView(
           children: [
             CustomAppBar(
+                onPressedIconFavotite: () {
+                  Get.toNamed(AppRoute.myFavorite);
+                },
                 titleappbar: "56".tr,
-                onPressedIcon: () {},
+                // onPressedIcon: () {},
                 onPressedSearch: () {}),
             const SizedBox(
               height: 20,
@@ -36,9 +41,15 @@ class Items extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: controller.data.length,
-                  itemBuilder: ((context, index) => CustomListItems(
-                        itemsModel: ItemsModel.fromJson(controller.data[index]),
-                      )),
+                  itemBuilder: ((context, index) {
+                    controllerFav
+                            .isFavorite[controller.data[index]['items_id']] =
+                        controller.data[index]['favorite'];
+
+                    return CustomListItems(
+                      itemsModel: ItemsModel.fromJson(controller.data[index]),
+                    );
+                  }),
                 ),
               ),
             ),

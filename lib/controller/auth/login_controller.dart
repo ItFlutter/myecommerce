@@ -53,18 +53,23 @@ class LoginControllerImp extends LoginController {
           Get.defaultDialog(title: "47".tr, middleText: "51".tr);
         } else {
           // data.addAll(response['status']);
-          myServices.sharedPreferences
-              .setString("id", "${response['data']['users_id']}");
-          myServices.sharedPreferences
-              .setString("username", "${response['data']['users_name']}");
-          myServices.sharedPreferences
-              .setString("email", "${response['data']['	users_email']}");
-          myServices.sharedPreferences
-              .setString("phone", "${response['data']['users_phone']}");
-          myServices.sharedPreferences.setString("step", "2");
-          Get.offNamed(
-            AppRoute.homepage,
-          );
+          if (response['data']['users_approve'] == "1") {
+            myServices.sharedPreferences
+                .setString("id", "${response['data']['users_id']}");
+            myServices.sharedPreferences
+                .setString("username", "${response['data']['users_name']}");
+            myServices.sharedPreferences
+                .setString("email", "${response['data']['	users_email']}");
+            myServices.sharedPreferences
+                .setString("phone", "${response['data']['users_phone']}");
+            myServices.sharedPreferences.setString("step", "2");
+            Get.offNamed(
+              AppRoute.homepage,
+            );
+          } else {
+            Get.toNamed(AppRoute.verifyCodeSignUp,
+                arguments: {'email': email.text});
+          }
         }
       }
       update();
