@@ -25,10 +25,21 @@ class AppLink {
   static const String homepage = "$server/home.php";
   // ================================= Items ================================== //
   static const String items = "$server/items/items.php";
+  static const String searchItems = "$server/items/search.php";
   // ================================= Favorite ================================== //
   static const String favoriteAdd = "$server/favorite/add.php";
   static const String favoriteRemove = "$server/favorite/remove.php";
   static const String favoriteView = "$server/favorite/view.php";
   static const String deletefromfavorite =
       "$server/favorite/deletefromfavorite.php";
+  // ================================= Cart ================================== //
+  static const String cartview = "$server/cart/view.php";
+  static const String cartadd = "$server/cart/add.php";
+  static const String cartdelete = "$server/cart/delete.php";
+  static const String cartgetcountitems = "$server/cart/getcountitems.php";
+  // ================================= Address ================================== //
+  static const String addressView = "$server/addrees/view.php";
+  static const String addressAdd = "$server/addrees/add.php";
+  static const String addressEdit = "$server/addrees/edit.php";
+  static const String addressDelete = "$server/addrees/delete.php";
 }

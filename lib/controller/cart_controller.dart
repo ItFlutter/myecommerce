@@ -2,38 +2,20 @@ import 'package:ecommerce/core/class/statuscode.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/sevices/sevices.dart';
 import 'package:ecommerce/data/datasource/remote/cart_data.dart';
-import 'package:ecommerce/data/model/itemsmodel.dart';
+import 'package:ecommerce/data/model/cartmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class ProductDetailsController extends GetxController {
-  initialData();
-}
-
-class ProductDetailsControllerImp extends ProductDetailsController {
-  // CartController cartContoller = Get.put(CartController());
-  CartData cartData = CartData(Get.find());
+class CartController extends GetxController {
   MyServices myServices = Get.find();
+  StatusRequest? statusRequest;
+  CartData cartData = CartData(Get.find());
 
-  late ItemsModel itemsModel;
-  List subItems = [
-    {
-      "id": "1",
-      "name": "Red",
-      "active": "1",
-    },
-    {
-      "id": "2",
-      "name": "Black",
-      "active": "0",
-    },
-    {
-      "id": "3",
-      "name": "Blue",
-      "active": "0",
-    }
-  ];
-  addItems(String itemsid) async {
+  int totalcountitems = 0;
+  double priceorders = 0.0;
+  List<CartModel> data = [];
+
+  add(String itemsid) async {
     statusRequest = StatusRequest.loading;
     var response = await cartData.addCart(
         myServices.sharedPreferences.getString("id")!, itemsid);
@@ -46,7 +28,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
         Get.rawSnackbar(
             title: "47".tr,
             messageText: Text(
-              "added To Cart",
+              "76".tr,
               style: const TextStyle(color: Colors.white),
             ));
       }
@@ -55,7 +37,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     update();
   }
 
-  deleteItems(String itemsid) async {
+  delete(String itemsid) async {
     statusRequest = StatusRequest.loading;
     var response = await cartData.deleteCart(
         myServices.sharedPreferences.getString("id")!, itemsid);
@@ -68,7 +50,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
         Get.rawSnackbar(
             title: "47".tr,
             messageText: Text(
-              "Removed From Cart",
+              "77".tr,
               style: const TextStyle(color: Colors.white),
             ));
       }
@@ -77,52 +59,44 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     update();
   }
 
-  getCountItems(String itemsid) async {
+  resetVarCart() {
+    totalcountitems = 0;
+    priceorders = 0.0;
+    data.clear();
+  }
+
+  refreshPage() {
+    resetVarCart();
+    view();
+  }
+
+  view() async {
     statusRequest = StatusRequest.loading;
-    var response = await cartData.getCountCart(
-        myServices.sharedPreferences.getString("id")!, itemsid);
+    var response =
+        await cartData.viewCart(myServices.sharedPreferences.getString("id")!);
     print("=====================================Controller ${response}");
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "failure") {
         statusRequest = StatusRequest.failure;
       } else {
-        int countitems = 0;
-        countitems = int.parse(response['data']);
-        print("============================================");
-        print("$countitems");
-        return countitems;
+        if (response['datacart']['status'] == "success") {
+          List dataresponse = response['datacart']['data'];
+          data.addAll(dataresponse.map((e) => CartModel.fromJson(e)));
+          Map dataresponsecountprice = response['countprice'];
+          priceorders = double.parse(dataresponsecountprice['totalprice']);
+          totalcountitems = int.parse(dataresponsecountprice['totalcount']);
+        }
       }
     }
-  }
-
-  int countitems = 0;
-  StatusRequest? statusRequest;
-  @override
-  initialData() async {
-    statusRequest = StatusRequest.loading;
-    itemsModel = Get.arguments['itemsModel'];
-    countitems = await getCountItems(itemsModel.itemsId!);
-    statusRequest = StatusRequest.success;
     update();
   }
+// resetVarCart(){
 
-  add() {
-    addItems(itemsModel.itemsId!);
-    countitems++;
-    update();
-  }
-
-  remove() {
-    if (countitems > 0) {
-      deleteItems(itemsModel.itemsId!);
-      countitems--;
-      update();
-    }
-  }
-
+// }
   @override
   void onInit() {
-    initialData();
+    view();
+    super.onInit();
   }
 }

@@ -18,13 +18,13 @@ class MyFavorite extends StatelessWidget {
           child: GetBuilder<MyFavoriteControllerImp>(
             builder: ((controller) => ListView(
                   children: [
-                    CustomAppBar(
-                        onPressedIconFavotite: () {
-                          Get.toNamed(AppRoute.myFavorite);
-                        },
-                        titleappbar: "56".tr,
-                        // onPressedIcon: () {},
-                        onPressedSearch: () {}),
+                    // CustomAppBar(
+                    //     onPressedIconFavotite: () {
+                    //       Get.toNamed(AppRoute.myFavorite);
+                    //     },
+                    //     titleappbar: "56".tr,
+                    //     // onPressedIcon: () {},
+                    //     onPressedSearch: () {}),
                     const SizedBox(
                       height: 20,
                     ),

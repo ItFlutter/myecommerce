@@ -1,67 +1,69 @@
-import 'dart:ui';
-
-import 'package:ecommerce/core/constant/color.dart';
-import 'package:ecommerce/core/constant/imageasset.dart';
+import 'package:ecommerce/controller/cart_controller.dart';
+import 'package:ecommerce/core/class/handlingdataview.dart';
+import 'package:ecommerce/view/widget/cart/appbarcart.dart';
+import 'package:ecommerce/view/widget/cart/custom_bottom_navigationbar_cart.dart';
+import 'package:ecommerce/view/widget/cart/customitemscartlist.dart';
+import 'package:ecommerce/view/widget/cart/topcardcart.dart';
 import "package:flutter/material.dart";
+import 'package:get/get.dart';
 
 class Cart extends StatelessWidget {
   const Cart({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CartController controller = Get.put(CartController());
     return Scaffold(
-      body: ListView(
-        children: [
-          Text(
-            "Cart",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 25,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: Column(
+        bottomNavigationBar: GetBuilder<CartController>(
+          builder: (controller) => BottomNavigationBarCart(
+              price: "${controller.priceorders} \$",
+              shipping: "300 \$",
+              totalprice: "1500 \$"),
+        ),
+        body: GetBuilder<CartController>(
+          builder: (controller) => HandlingDataView(
+            statusRequest: controller.statusRequest!,
+            widget: ListView(
               children: [
-                Card(
-                  child: Row(
+                const TopAppbarCart(
+                  title: "My Cart",
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TopCardCart(
+                  message:
+                      "you Have ${controller.totalcountitems} Items in Your List",
+                ),
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
                     children: [
-                      Expanded(
-                          flex: 2, child: Image.asset(AppImageAsset.logo2)),
-                      Expanded(
-                          flex: 3,
-                          child: ListTile(
-                            title: Text(
-                              "Macbook M2 Max",
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Text(
-                              "300.00 \$",
-                              style: TextStyle(
-                                  fontSize: 17, color: AppColor.primaryColor),
-                            ),
-                          )),
-                      Expanded(
-                          child: Column(
-                        children: [
-                          IconButton(onPressed: () {}, icon: Icon(Icons.add)),
-                          Text("2",
-                              style: TextStyle(
-                                fontFamily: "1",
-                              )),
-                          IconButton(
-                              onPressed: () {}, icon: Icon(Icons.remove)),
-                        ],
-                      ))
+                      ...List.generate(
+                        controller.data.length,
+                        (index) => CustomItemsCartList(
+                          onAdd: () async {
+                            await controller
+                                .add(controller.data[index].itemsId!);
+                            controller.refreshPage();
+                          },
+                          onRemove: () async {
+                            await controller
+                                .delete(controller.data[index].itemsId!);
+                            controller.refreshPage();
+                          },
+                          imagename: "${controller.data[index].itemsImage}",
+                          name: "${controller.data[index].itemsName}",
+                          price: "${controller.data[index].itemsprice} \$",
+                          count: "${controller.data[index].countitems}",
+                        ),
+                      )
                     ],
                   ),
                 )
               ],
             ),
-          )
-        ],
-      ),
-    );
+          ),
+        ));
   }
 }
