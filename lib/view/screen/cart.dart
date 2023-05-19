@@ -1,6 +1,6 @@
 import 'package:ecommerce/controller/cart_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/view/widget/cart/appbarcart.dart';
+
 import 'package:ecommerce/view/widget/cart/custom_bottom_navigationbar_cart.dart';
 import 'package:ecommerce/view/widget/cart/customitemscartlist.dart';
 import 'package:ecommerce/view/widget/cart/topcardcart.dart';
@@ -12,28 +12,35 @@ class Cart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CartController controller = Get.put(CartController());
+    Get.put(CartController());
     return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "92".tr,
+          ),
+        ),
         bottomNavigationBar: GetBuilder<CartController>(
           builder: (controller) => BottomNavigationBarCart(
+              controllercoupon: controller.controllercoupon!,
+              onApply: () {
+                controller.checkCoupon();
+              },
               price: "${controller.priceorders} \$",
-              shipping: "300 \$",
-              totalprice: "1500 \$"),
+              discount: "${controller.discount}%",
+              shipping: "0",
+              totalprice: "${controller.getTotalPrice()} \$"),
         ),
         body: GetBuilder<CartController>(
           builder: (controller) => HandlingDataView(
             statusRequest: controller.statusRequest!,
             widget: ListView(
               children: [
-                const TopAppbarCart(
-                  title: "My Cart",
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
                 TopCardCart(
-                  message:
-                      "you Have ${controller.totalcountitems} Items in Your List",
+                  message: "93".tr +
+                      " " +
+                      "${controller.totalcountitems}" +
+                      " " +
+                      "94".tr,
                 ),
                 Container(
                   padding: const EdgeInsets.all(10),

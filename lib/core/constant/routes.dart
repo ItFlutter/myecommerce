@@ -20,4 +20,7 @@ class AppRoute {
   static const String addressview = "/addressview";
   static const String addressadd = "/addressadd";
   static const String addressadddetails = "/addressaddtwo";
+  //Checkout
+  static const String checkout = "/checkout";
+  static const String orderspending = "/orderspending";
 }

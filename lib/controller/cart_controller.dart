@@ -1,8 +1,10 @@
 import 'package:ecommerce/core/class/statuscode.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/sevices/sevices.dart';
 import 'package:ecommerce/data/datasource/remote/cart_data.dart';
 import 'package:ecommerce/data/model/cartmodel.dart';
+import 'package:ecommerce/data/model/couponmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +12,11 @@ class CartController extends GetxController {
   MyServices myServices = Get.find();
   StatusRequest? statusRequest;
   CartData cartData = CartData(Get.find());
-
+  int discount = 0;
+  String? couponname;
+  String? couponid;
+  CouponModel? couponModel;
+  TextEditingController? controllercoupon;
   int totalcountitems = 0;
   double priceorders = 0.0;
   List<CartModel> data = [];
@@ -59,6 +65,34 @@ class CartController extends GetxController {
     update();
   }
 
+  checkCoupon() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await cartData.checkCoupon(controllercoupon!.text);
+    print("=====================================Controller ${response}");
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "failure") {
+        // statusRequest = StatusRequest.failure;
+        Get.snackbar("47".tr, "124".tr);
+        discount = 0;
+        couponname = null;
+        couponid = null;
+      } else {
+        couponModel = CouponModel.fromJson(response['data']);
+        discount = int.parse(couponModel!.couponDiscount!);
+        couponname = couponModel!.couponName;
+        couponid = couponModel!.couponId;
+      }
+    }
+
+    update();
+  }
+
+  getTotalPrice() {
+    return priceorders - priceorders * discount / 100;
+  }
+
   resetVarCart() {
     totalcountitems = 0;
     priceorders = 0.0;
@@ -74,7 +108,7 @@ class CartController extends GetxController {
     statusRequest = StatusRequest.loading;
     var response =
         await cartData.viewCart(myServices.sharedPreferences.getString("id")!);
-    print("=====================================Controller ${response}");
+    print("=====================================Controller $response");
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "failure") {
@@ -94,8 +128,20 @@ class CartController extends GetxController {
 // resetVarCart(){
 
 // }
+  goToPageCheckout() {
+    if (data.isEmpty) {
+      return Get.snackbar("47".tr, "125".tr);
+    }
+    Get.toNamed(AppRoute.checkout, arguments: {
+      'couponid': couponid ?? "0",
+      'priceorder': priceorders.toString(),
+      'discount': discount.toString()
+    });
+  }
+
   @override
   void onInit() {
+    controllercoupon = TextEditingController();
     view();
     super.onInit();
   }

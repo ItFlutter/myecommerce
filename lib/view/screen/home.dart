@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
     Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => Container(
-        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+        margin: const EdgeInsets.only(top: 10, left: 15, right: 15),
         child: ListView(
           children: [
             CustomAppBar(
@@ -57,10 +57,10 @@ class HomePage extends StatelessWidget {
                             title: "60".tr,
                           ),
                           const ListItemsHome(),
-                          CustomTitleHome(
-                            title: "61".tr,
-                          ),
-                          const ListItemsHome(),
+                          // CustomTitleHome(
+                          //   title: "61".tr,
+                          // ),
+                          // const ListItemsHome(),
                         ],
                       )
                     : ListItemsSearch(

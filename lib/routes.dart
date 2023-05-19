@@ -6,9 +6,11 @@ import 'package:ecommerce/view/screen/auth/forgetpassword/successresetpassword.d
 import 'package:ecommerce/view/screen/auth/successsignup.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/verifycode.dart';
 import 'package:ecommerce/view/screen/auth/verifycodesignup.dart';
+import 'package:ecommerce/view/screen/checkout.dart';
 import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
 import 'package:ecommerce/view/screen/myfavorite.dart';
+import 'package:ecommerce/view/screen/orders/pending.dart';
 import 'package:get/get.dart';
 
 import 'core/constant/routes.dart';
@@ -49,4 +51,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.addressadd, page: () => const AddressAdd()),
   GetPage(
       name: AppRoute.addressadddetails, page: () => const AddressAddDetails()),
+  //Checkout
+  GetPage(name: AppRoute.checkout, page: () => const CheckOut()),
+  GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
 ];

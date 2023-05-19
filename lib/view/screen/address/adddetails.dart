@@ -23,28 +23,28 @@ class AddressAddDetails extends StatelessWidget {
                   widget: ListView(
                     children: [
                       CustomTextFormAuth(
-                          hinttext: "city",
-                          labeltext: "city",
+                          hinttext: "102".tr,
+                          labeltext: "102".tr,
                           iconData: Icons.location_city,
                           mycontroller: controller.city,
                           valid: (val) {},
                           isNumber: false),
                       CustomTextFormAuth(
-                          hinttext: "street",
-                          labeltext: "street",
+                          hinttext: "103".tr,
+                          labeltext: "103".tr,
                           iconData: Icons.streetview,
                           mycontroller: controller.street,
                           valid: (val) {},
                           isNumber: false),
                       CustomTextFormAuth(
-                          hinttext: "name",
-                          labeltext: "name",
+                          hinttext: "104".tr,
+                          labeltext: "104".tr,
                           iconData: Icons.near_me,
                           mycontroller: controller.name,
                           valid: (val) {},
                           isNumber: false),
                       CustomButton(
-                        text: "Add",
+                        text: "105".tr,
                         onPressed: () {
                           controller.addAddress();
                         },
