@@ -1,4 +1,6 @@
 import 'package:ecommerce/view/screen/home.dart';
+import 'package:ecommerce/view/screen/notification.dart';
+import 'package:ecommerce/view/screen/offers.dart';
 import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,25 +10,11 @@ abstract class HomeScreenController extends GetxController {
 }
 
 class HomeScreenControllerImp extends HomeScreenController {
-  List<Widget> listPage = [
-    const HomePage(),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(
-          child: Text("63".tr),
-        )
-      ],
-    ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(
-          child: Text("64".tr),
-        )
-      ],
-    ),
-    const Settingss()
+  List<Widget> listPage = const [
+    HomePage(),
+    NotificationView(),
+    OffersView(),
+    Settingss()
   ];
   List bottomappbar = [
     {
@@ -38,8 +26,8 @@ class HomeScreenControllerImp extends HomeScreenController {
       "icon": Icons.notifications_active_outlined,
     },
     {
-      "title": "64".tr,
-      "icon": Icons.person_pin_sharp,
+      "title": "128".tr,
+      "icon": Icons.offline_bolt_outlined,
     },
     {
       "title": "63".tr,

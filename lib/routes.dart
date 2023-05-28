@@ -10,6 +10,7 @@ import 'package:ecommerce/view/screen/checkout.dart';
 import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
 import 'package:ecommerce/view/screen/myfavorite.dart';
+import 'package:ecommerce/view/screen/orders/details.dart';
 import 'package:ecommerce/view/screen/orders/pending.dart';
 import 'package:get/get.dart';
 
@@ -21,6 +22,7 @@ import 'view/screen/auth/login.dart';
 import 'view/screen/cart.dart';
 import 'view/screen/homescreen.dart';
 import 'view/screen/onboarding.dart';
+import 'view/screen/orders/archive.dart';
 import 'view/screen/productdetails.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -54,4 +56,6 @@ List<GetPage<dynamic>>? routes = [
   //Checkout
   GetPage(name: AppRoute.checkout, page: () => const CheckOut()),
   GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
+  GetPage(name: AppRoute.ordersdetails, page: () => const OrdersDetails()),
+  GetPage(name: AppRoute.ordersarchive, page: () => const OrdersArchiveView()),
 ];

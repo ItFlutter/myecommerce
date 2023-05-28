@@ -130,6 +130,9 @@ class MyTranslation extends Translations {
           "123": "حاول ثانيا",
           "124": "الكوبون غير صالح",
           "125": "السلة فارغة",
+          "126": "حذف",
+          "127": "جاهز للاستلام من قبل عامل التوصيل",
+          "128": "عروض",
         },
         "en": {
           "1": "Choose Language",
@@ -203,6 +206,7 @@ class MyTranslation extends Translations {
           "67": "added to favorite",
           "68": "Removed from favourites",
           "69": "notifi",
+          // "69": "notification",
           "70": "Resend Verfiy Code",
           "71": "Disable Notifications",
           "72": "Address",
@@ -259,6 +263,9 @@ class MyTranslation extends Translations {
           "123": "try again",
           "124": "Coupon Not Valid",
           "125": "cart empty",
+          "126": "Delete",
+          "127": "Ready To Picked up by Delivery man",
+          "128": "offers",
         },
       };
 }

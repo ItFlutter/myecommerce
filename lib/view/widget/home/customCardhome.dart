@@ -37,8 +37,8 @@ class CustomCardHome extends GetView<HomeControllerImp> {
           ),
           Positioned(
             bottom: 10,
-            left: controller.lang == "en" ? 210 : null,
-            right: controller.lang == "ar" ? 210 : null,
+            // left: controller.lang == "en" ? 210 : null,
+            right: controller.lang == "ar" ? 210 : -25,
             child: Container(
               width: 150,
               height: 150,

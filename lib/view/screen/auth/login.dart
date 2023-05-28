@@ -1,5 +1,4 @@
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/core/class/statuscode.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

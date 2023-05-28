@@ -4,6 +4,7 @@ import 'package:ecommerce/core/constant/imageasset.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settingss extends StatelessWidget {
   const Settingss({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class Settingss extends StatelessWidget {
                 ListTile(
                   title: Text("107".tr),
                   onTap: () {
-                    Get.toNamed(AppRoute.addressview);
+                    Get.toNamed(AppRoute.ordersarchive);
                   },
                   trailing: const Icon(Icons.card_travel),
                 ),
@@ -80,7 +81,9 @@ class Settingss extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text("75".tr),
-                  onTap: () {},
+                  onTap: () async {
+                    await launchUrl(Uri.parse("tel:+963-930-408-122"));
+                  },
                   trailing: const Icon(Icons.phone_callback_outlined),
                 ),
                 ListTile(

@@ -2,6 +2,25 @@
     package="com.ecommerce.ecommerce">
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- <queries>
+        <intent>
+          <action android:name="android.intent.action.SENDTO"/>
+          <data android:scheme="smsto" android:host="*" />
+        </intent>
+    </queries> -->
+    <!-- Provide required visibility configuration for API level 30 and above -->
+<queries>
+  <!-- If your app checks for SMS support -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="sms" />
+  </intent>
+  <!-- If your app checks for call support -->
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="tel" />
+  </intent>
+</queries>
    <application
         android:label="ecommerce"
         android:name="${applicationName}"
