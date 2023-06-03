@@ -80,6 +80,7 @@ dependencies:
   lottie: ^1.4.2
   firebase_core_platform_interface: 4.5.1
   flutter_ringtone_player: ^3.2.0
+  rating_dialog: ^2.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter

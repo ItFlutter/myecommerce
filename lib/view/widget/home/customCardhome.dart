@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomCardHome extends GetView<HomeControllerImp> {
-  final String title;
-  final String body;
+  final String? title;
+  final String? body;
   const CustomCardHome({Key? key, required this.title, required this.body})
       : super(key: key);
 
@@ -26,11 +26,11 @@ class CustomCardHome extends GetView<HomeControllerImp> {
                 borderRadius: BorderRadius.circular(15)),
             child: ListTile(
               title: Text(
-                title,
+                title!,
                 style: const TextStyle(color: Colors.white, fontSize: 20),
               ),
               subtitle: Text(
-                body,
+                body!,
                 style: const TextStyle(color: Colors.white, fontSize: 30),
               ),
             ),

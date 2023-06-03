@@ -45,16 +45,19 @@ class HomePage extends StatelessWidget {
                     ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          // if (controller.settingsData.isNotEmpty)
                           CustomCardHome(
-                            title: "57".tr,
-                            body: "58".tr,
-                          ),
+                              title: controller.titleHomeCard,
+                              body: controller.bodyHomeCard),
                           CustomTitleHome(
                             title: "59".tr,
                           ),
                           const ListCategoriesHome(),
+                          const SizedBox(
+                            height: 20,
+                          ),
                           CustomTitleHome(
-                            title: "60".tr,
+                            title: "133".tr,
                           ),
                           const ListItemsHome(),
                           // CustomTitleHome(

@@ -15,53 +15,70 @@ class ListItemsHome extends GetView<HomeControllerImp> {
       height: 140,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: controller.items.length,
+        itemCount: controller.itemstopselling.isNotEmpty
+            ? controller.itemstopselling.length
+            : 2,
+        // controller.items.length,
         itemBuilder: (context, index) {
-          return ItemsHome(
-            itemsModel: ItemsModel.fromJson(controller.items[index]),
-          );
+          if (controller.itemstopselling.isNotEmpty) {
+            return ItemsHome(
+              itemsModel:
+                  ItemsModel.fromJson(controller.itemstopselling[index]),
+            );
+          } else {
+            return ItemsHome(
+              itemsModel: ItemsModel.fromJson(controller.items[index]),
+            );
+          }
         },
       ),
     );
   }
 }
 
-class ItemsHome extends StatelessWidget {
+class ItemsHome extends GetView<HomeControllerImp> {
   final ItemsModel itemsModel;
   const ItemsHome({Key? key, required this.itemsModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Image.network(
-            "${AppLink.imageitems}/${itemsModel.itemsImage}",
+    return InkWell(
+      onTap: () {
+        controller.goToPageProductDetails(itemsModel);
+      },
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Image.network(
+              "${AppLink.imageitems}/${itemsModel.itemsImage}",
+              height: 180,
+              width: 180,
+              fit: BoxFit.contain,
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(right: 10),
+            width: 220,
             height: 180,
-            width: 180,
-            fit: BoxFit.contain,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: AppColor.black.withOpacity(0.3),
+            ),
           ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(right: 10),
-          width: 220,
-          height: 180,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: AppColor.black.withOpacity(0.3),
+          Positioned(
+            top: 10,
+            left: 10,
+            child: Text(
+              "${translateDatabase(itemsModel.itemsNameAr, itemsModel.itemsName)}",
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
           ),
-        ),
-        Positioned(
-          top: 10,
-          left: 10,
-          child: Text(
-            "${translateDatabase(itemsModel.itemsNameAr, itemsModel.itemsName)}",
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

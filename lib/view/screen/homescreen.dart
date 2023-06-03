@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:ecommerce/controller/homescreen_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/routes.dart';
@@ -14,17 +17,35 @@ class HomeScreen extends StatelessWidget {
 
     return GetBuilder<HomeScreenControllerImp>(
       builder: (controller) => Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: AppColor.primaryColor,
-          onPressed: () {
-            Get.toNamed(AppRoute.cart);
-          },
-          child: const Icon(Icons.shopping_basket_outlined),
-        ),
-        bottomNavigationBar: const CustomBottomAppBarHome(),
-        body: controller.listPage.elementAt(controller.currentPage),
-      ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: AppColor.primaryColor,
+            onPressed: () {
+              Get.toNamed(AppRoute.cart);
+            },
+            child: const Icon(Icons.shopping_basket_outlined),
+          ),
+          bottomNavigationBar: const CustomBottomAppBarHome(),
+          body: WillPopScope(
+              child: controller.listPage.elementAt(controller.currentPage),
+              onWillPop: () {
+                Get.defaultDialog(
+                  title: "47".tr,
+                  middleText: "48".tr,
+                  onConfirm: () {
+                    exit(0);
+                  },
+                  onCancel: () {},
+                  titleStyle: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: AppColor.primaryColor),
+                  cancelTextColor: AppColor.secondryColor,
+                  confirmTextColor: AppColor.secondryColor,
+                  buttonColor: AppColor.thridColor,
+                );
+                return Future.value(true);
+              })),
     );
   }
 }

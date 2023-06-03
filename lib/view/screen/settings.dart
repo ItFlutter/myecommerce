@@ -2,6 +2,7 @@ import 'package:ecommerce/controller/settings_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/imageasset.dart';
 import 'package:ecommerce/core/constant/routes.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -46,11 +47,15 @@ class Settingss extends StatelessWidget {
           child: Card(
             child: Column(
               children: [
-                ListTile(
-                  title: Text("71".tr),
-                  trailing: Switch(
-                    onChanged: (val) {},
-                    value: true,
+                GetBuilder<SettingsControllerImp>(
+                  builder: (controller) => ListTile(
+                    title: Text("134".tr),
+                    trailing: Switch(
+                      onChanged: (val) {
+                        controller.onChanged(val);
+                      },
+                      value: controller.value,
+                    ),
                   ),
                 ),
                 ListTile(

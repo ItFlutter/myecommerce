@@ -26,9 +26,10 @@ class ProductDetails extends StatelessWidget {
           onPressed: () {
             Get.toNamed(AppRoute.cart);
           },
-          child: const Text(
-            "Go To Cart",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          child: Text(
+            "135".tr,
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
       ),

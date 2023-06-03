@@ -45,31 +45,31 @@ class CustomListItemsOffer extends GetView<OffersController> {
                         fontSize: 15,
                         color: AppColor.black,
                         fontWeight: FontWeight.bold)),
-                Container(
-                  height: 30,
-                  alignment: Alignment.bottomCenter,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "66".tr,
-                      ),
-                      Row(
-                        children: [
-                          ...List.generate(
-                              5,
-                              (index) => const Padding(
-                                    padding: EdgeInsets.only(top: 7.0),
-                                    child: Icon(
-                                      Icons.star,
-                                      size: 13,
-                                    ),
-                                  ))
-                        ],
-                      )
-                    ],
-                  ),
-                ),
+                // Container(
+                //   height: 30,
+                //   alignment: Alignment.bottomCenter,
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       Text(
+                //         "66".tr,
+                //       ),
+                //       Row(
+                //         children: [
+                //           ...List.generate(
+                //               5,
+                //               (index) => const Padding(
+                //                     padding: EdgeInsets.only(top: 7.0),
+                //                     child: Icon(
+                //                       Icons.star,
+                //                       size: 13,
+                //                     ),
+                //                   ))
+                //         ],
+                //       )
+                //     ],
+                //   ),
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -78,31 +78,31 @@ class CustomListItemsOffer extends GetView<OffersController> {
                       style: const TextStyle(
                           color: AppColor.primaryColor, fontFamily: "sans"),
                     ),
-                    // GetBuilder<FavoriteControllerImp>(
-                    //   builder: (controller2) => IconButton(
-                    //       onPressed: () {
-                    //         if (controller2.isFavorite[itemsModel.itemsId] ==
-                    //             "1") {
-                    //           controller2.setFavorite(itemsModel.itemsId!, "0");
+                    GetBuilder<FavoriteControllerImp>(
+                      builder: (controller2) => IconButton(
+                          onPressed: () {
+                            if (controller2.isFavorite[itemsModel.itemsId] ==
+                                "1") {
+                              controller2.setFavorite(itemsModel.itemsId!, "0");
 
-                    //           controller2.removeFavorite(itemsModel.itemsId!);
-                    //         } else {
-                    //           controller2.setFavorite(itemsModel.itemsId!, "1");
-                    //           controller2.addFavorite(itemsModel.itemsId!);
-                    //         }
-                    //         // controller.setFavorite(
-                    //         //     itemsModel.itemsId!,
-                    //         //     controller.isFavorite[itemsModel.itemsId] == "1"
-                    //         //         ? "0"
-                    //         //         : "1");
-                    //       },
-                    //       icon: Icon(
-                    //         controller2.isFavorite[itemsModel.itemsId] == "1"
-                    //             ? Icons.favorite
-                    //             : Icons.favorite_border_outlined,
-                    //         color: AppColor.primaryColor,
-                    //       )),
-                    // )
+                              controller2.removeFavorite(itemsModel.itemsId!);
+                            } else {
+                              controller2.setFavorite(itemsModel.itemsId!, "1");
+                              controller2.addFavorite(itemsModel.itemsId!);
+                            }
+                            // controller.setFavorite(
+                            //     itemsModel.itemsId!,
+                            //     controller.isFavorite[itemsModel.itemsId] == "1"
+                            //         ? "0"
+                            //         : "1");
+                          },
+                          icon: Icon(
+                            controller2.isFavorite[itemsModel.itemsId] == "1"
+                                ? Icons.favorite
+                                : Icons.favorite_border_outlined,
+                            color: AppColor.primaryColor,
+                          )),
+                    )
                   ],
                 )
               ],

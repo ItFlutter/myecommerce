@@ -64,6 +64,24 @@ class OrdersArchiveController extends GetxController {
     getOrders();
   }
 
+  submitRating(String ordersid, double rating, String comment) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    update();
+    var response =
+        await ordersArchiveData.rating(ordersid, rating.toString(), comment);
+    print("=====================================Controller ${response}");
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "failure") {
+        statusRequest = StatusRequest.failure;
+      } else {
+        getOrders();
+      }
+    }
+    update();
+  }
+
   @override
   void onInit() {
     getOrders();

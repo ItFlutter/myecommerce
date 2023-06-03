@@ -48,7 +48,7 @@ class CheckoutController extends GetxController {
         List listdata = response['data'];
         dataaddress.addAll(listdata.map((e) => AddressModel.fromJson(e)));
       } else {
-        statusRequest = StatusRequest.failure;
+        statusRequest = StatusRequest.success;
       }
     }
     update();
@@ -64,6 +64,10 @@ class CheckoutController extends GetxController {
     if (deliveryType == "0" && addressid == "0") {
       return Get.snackbar("118".tr, "121".tr);
     }
+    // if (dataaddress.isEmpty) {
+    //   return Get.snackbar("118".tr, "121".tr);
+
+    // }
     statusRequest = StatusRequest.loading;
     update();
     Map data = {

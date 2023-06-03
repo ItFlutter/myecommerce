@@ -41,6 +41,7 @@ class FavoriteControllerImp extends FavoriteController {
             ));
       }
     }
+    update();
   }
 
   removeFavorite(String itemsid) async {
@@ -63,5 +64,6 @@ class FavoriteControllerImp extends FavoriteController {
             ));
       }
     }
+    update();
   }
 }

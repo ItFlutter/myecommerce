@@ -17,6 +17,11 @@ class HomeControllerImp extends SearchMixController {
   String? lang;
   List categories = [];
   List items = [];
+  List itemstopselling = [];
+  Map settingsData = {};
+  String titleHomeCard = "";
+  String bodyHomeCard = "";
+  String deliveryTime = "";
 
   MyServices myServices = Get.find();
   String? username;
@@ -29,16 +34,25 @@ class HomeControllerImp extends SearchMixController {
 
   getData() async {
     statusRequest = StatusRequest.loading;
+    update();
     var response = await homeData.getData();
+
     print("=====================================Controller ${response}");
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
-      if (response['categories']['status'] == "failure" &&
-          response['items']['status'] == "failure") {
+      if (response['categories']['status'] == "failure" ||
+          response['items']['status'] == "failure" ||
+          response['settings']['status'] == 'failure') {
         statusRequest = StatusRequest.failure;
       } else {
         categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
+        settingsData.addAll(response['settings']['data']);
+        itemstopselling.addAll(response['itemstopselling']['data'] ?? []);
+        titleHomeCard = settingsData['settings_titlehome'];
+        bodyHomeCard = settingsData['settings_bodyhome'];
+        deliveryTime = settingsData['settings_deliverytime'];
+        myServices.sharedPreferences.setString("deliverytime", deliveryTime);
       }
     }
     update();
@@ -55,7 +69,6 @@ class HomeControllerImp extends SearchMixController {
   @override
   void onInit() {
     getData();
-
     initialData();
     search = TextEditingController();
     super.onInit();
@@ -76,7 +89,9 @@ class SearchMixController extends GetxController {
   HomeData homeData = HomeData(Get.find());
   searchData() async {
     statusRequest = StatusRequest.loading;
+    // update();
     var response = await homeData.searchData(search!.text);
+    print("search");
     print("=====================================Controller ${response}");
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
@@ -96,6 +111,7 @@ class SearchMixController extends GetxController {
     searchData();
     isSearch = true;
     update();
+    // print("update");
   }
 
   checkSearch(String val) {

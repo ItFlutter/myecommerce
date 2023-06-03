@@ -2,6 +2,7 @@ import 'package:ecommerce/controller/checkout_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/imageasset.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/view/widget/checkout/carddeliverytype.dart';
 import 'package:ecommerce/view/widget/checkout/cardpaymentmethod.dart';
 import 'package:ecommerce/view/widget/checkout/cardshippingaddress.dart';
@@ -97,44 +98,71 @@ class CheckOut extends StatelessWidget {
                           ),
                         ],
                       ),
-                      controller.deliveryType == "0"
-                          ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                      top: 20, bottom: 10),
-                                  child: Text(
-                                    "91".tr,
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: AppColor.secondryColor),
+                      if (controller.deliveryType == "0")
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin:
+                                  const EdgeInsets.only(top: 20, bottom: 10),
+                              child: Text(
+                                "91".tr,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColor.secondryColor),
+                              ),
+                            ),
+                            // if (controller.dataaddress.isEmpty)
+                            if (controller.dataaddress.isEmpty)
+                              InkWell(
+                                onTap: () {
+                                  Get.offAllNamed(AppRoute.addressadd);
+                                },
+                                child: Center(
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        "137".tr,
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColor.primaryColor),
+                                      ),
+                                      Text(
+                                        "138".tr,
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                            decoration:
+                                                TextDecoration.underline,
+                                            fontWeight: FontWeight.bold,
+                                            color: AppColor.primaryColor),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                ...List.generate(
-                                  controller.dataaddress.length,
-                                  (index) => InkWell(
-                                    onTap: () {
-                                      controller.chooseShippingAddress(
+                              ),
+                            ...List.generate(
+                              controller.dataaddress.length,
+                              (index) => InkWell(
+                                onTap: () {
+                                  controller.chooseShippingAddress(
+                                      controller.dataaddress[index].addressId);
+                                },
+                                child: CardShippingAddressCheckout(
+                                  title:
+                                      "${controller.dataaddress[index].addressName}",
+                                  subtitle:
+                                      "${controller.dataaddress[index].addressCity} ${controller.dataaddress[index].addressStreet}",
+                                  isactive: controller.addressid ==
                                           controller
-                                              .dataaddress[index].addressId);
-                                    },
-                                    child: CardShippingAddressCheckout(
-                                      title:
-                                          "${controller.dataaddress[index].addressName}",
-                                      subtitle:
-                                          "${controller.dataaddress[index].addressCity} ${controller.dataaddress[index].addressStreet}",
-                                      isactive: controller.addressid ==
-                                              controller
-                                                  .dataaddress[index].addressId
-                                          ? true
-                                          : false,
-                                    ),
-                                  ),
-                                )
-                              ],
+                                              .dataaddress[index].addressId
+                                      ? true
+                                      : false,
+                                ),
+                              ),
                             )
-                          : Container()
+                          ],
+                        )
                     ]),
                   ),
                 )));

@@ -48,23 +48,20 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                   height: 30,
                   alignment: Alignment.bottomCenter,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "66".tr,
+                      Icon(
+                        Icons.timer_sharp,
+                        color: AppColor.grey,
+                        size: 20,
                       ),
-                      Row(
-                        children: [
-                          ...List.generate(
-                              5,
-                              (index) => const Padding(
-                                    padding: EdgeInsets.only(top: 7.0),
-                                    child: Icon(
-                                      Icons.star,
-                                      size: 13,
-                                    ),
-                                  ))
-                        ],
+                      Container(
+                        margin: const EdgeInsets.only(
+                          left: 3,
+                        ),
+                        child: Text(
+                          "${controller.deliveryTime} ${"136".tr}",
+                          style: const TextStyle(fontFamily: "sans"),
+                        ),
                       )
                     ],
                   ),

@@ -22,6 +22,7 @@ class ItemsControllerImp extends SearchMixController {
   List data = [];
   List categories = [];
   int? selectedCat;
+  String deliveryTime = "";
   @override
   void onInit() {
     initialData();
@@ -30,6 +31,7 @@ class ItemsControllerImp extends SearchMixController {
   }
 
   initialData() {
+    deliveryTime = myservices.sharedPreferences.getString("deliverytime")!;
     categories = Get.arguments['categories'];
     selectedCat = Get.arguments['selectedcat'];
     categoriesId = Get.arguments['categoriesId'];

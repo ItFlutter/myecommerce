@@ -2,6 +2,7 @@ import 'package:ecommerce/controller/orders/archive_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/data/model/ordersmodel.dart';
+import 'package:ecommerce/view/widget/orders/dialograting.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
@@ -63,6 +64,15 @@ class CardOrderListArchive extends GetView<OrdersArchiveController> {
                     color: AppColor.thridColor,
                     child: Text("114".tr),
                   ),
+                  if (listdata.ordersRating == "0")
+                    MaterialButton(
+                      onPressed: () {
+                        showDialogRating(context, listdata.ordersId!);
+                      },
+                      textColor: AppColor.secondryColor,
+                      color: AppColor.thridColor,
+                      child: Text("66".tr),
+                    ),
                 ],
               )
             ],

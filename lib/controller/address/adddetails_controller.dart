@@ -37,6 +37,7 @@ class AddAdressDetailsController extends GetxController {
         statusRequest = StatusRequest.failure;
       } else {
         Get.offAllNamed(AppRoute.homepage);
+        Get.snackbar("139".tr, "140".tr);
       }
     }
     update();
