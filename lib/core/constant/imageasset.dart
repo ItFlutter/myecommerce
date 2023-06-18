@@ -1,6 +1,9 @@
 class AppImageAsset {
   static const String rootImages = "assets/images";
   static const String rootLottie = "assets/lottie";
+  static const String rootIcons = "assets/icons";
+  static const String facebook = "$rootIcons/facebook-2.svg";
+  static const String google = "$rootIcons/google-icon.svg";
   static const String logo = "$rootImages/logo.png";
   static const String logo2 = "$rootImages/logoapp.png";
   static const String onBoardingimageOne = "$rootImages/one1.PNG";
@@ -14,5 +17,6 @@ class AppImageAsset {
   static const String saleOne = "$rootImages/sale.png";
   static const String deliveryImage2 = "$rootImages/006-delivery.png";
   static const String drivethruImage = "$rootImages/drivethru.png";
+  static const String success = "$rootImages/success.png";
   // static const String onBoardingimageFour = "$rootImages/onboardingfour.PNG";
 }

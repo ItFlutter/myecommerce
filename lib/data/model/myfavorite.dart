@@ -15,6 +15,7 @@ class MyFavoriteModel {
   String? itemsDate;
   String? itemsCat;
   String? usersId;
+  String? itemspricediscount;
 
   MyFavoriteModel(
       {this.favoriteId,
@@ -32,7 +33,8 @@ class MyFavoriteModel {
       this.itemsDiscount,
       this.itemsDate,
       this.itemsCat,
-      this.usersId});
+      this.usersId,
+      this.itemspricediscount});
 
   MyFavoriteModel.fromJson(Map<String, dynamic> json) {
     favoriteId = json['favorite_id'];
@@ -51,6 +53,7 @@ class MyFavoriteModel {
     itemsDate = json['items_date'];
     itemsCat = json['items_cat'];
     usersId = json['users_id'];
+    itemspricediscount = json['itemspricediscount'];
   }
 
   Map<String, dynamic> toJson() {
@@ -71,6 +74,7 @@ class MyFavoriteModel {
     data['items_date'] = this.itemsDate;
     data['items_cat'] = this.itemsCat;
     data['users_id'] = this.usersId;
+    data['itemspricediscount'] = this.itemspricediscount;
     return data;
   }
 }

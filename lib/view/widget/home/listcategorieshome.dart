@@ -47,12 +47,12 @@ class Categories extends GetView<HomeControllerImp> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: AppColor.thridColor),
+                color: AppColor.primaryColor),
             width: 65,
             height: 70,
             child: SvgPicture.network(
               "${AppLink.imagecategories}/${categoriesmodel.categoriesImage}",
-              color: AppColor.secondryColor,
+              color: AppColor.backgroundcolor,
             ),
           ),
           Text(

@@ -1,6 +1,9 @@
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/constant/imageasset.dart';
+import 'package:ecommerce/view/widget/auth/custombuttonsocial.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../controller/auth/login_controller.dart';
 import '../../../core/constant/routes.dart';
@@ -100,6 +103,21 @@ class Login extends StatelessWidget {
                             onPressed: () {
                               controller.login();
                             }),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     CustomButtonSocial(
+                        //         onTap: () {
+                        //           // controller.signInWithGoogle();
+                        //         },
+                        //         iconName: AppImageAsset.google),
+                        //     SizedBox(
+                        //       width: 10,
+                        //     ),
+                        //     CustomButtonSocial(
+                        //         onTap: () {}, iconName: AppImageAsset.facebook),
+                        //   ],
+                        // ),
                         CustomTextSignUpOrSignIn(
                           textone: "19".tr,
                           texttwo: "20".tr,

@@ -57,6 +57,7 @@ class CheckoutController extends GetxController {
   checkout() async {
     if (paymentMethod == null) {
       return Get.snackbar("118".tr, "119".tr);
+      // return Get.rawSnackbar(title: "118".tr, message: "119".tr);
     }
     if (deliveryType == null) {
       return Get.snackbar("118".tr, "120".tr);

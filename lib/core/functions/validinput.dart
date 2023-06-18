@@ -16,6 +16,11 @@ validInput(String val, int min, int max, String type) {
       return "43".tr;
     }
   }
+  // if (type == "text") {
+  //   if (!GetUtils.isAlphabetOnly(val)) {
+  //     return "145".tr;
+  //   }
+  // }
   if (val.isEmpty) {
     return "44".tr;
   }

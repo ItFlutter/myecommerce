@@ -34,15 +34,15 @@ class LocaleController extends GetxController {
       }
     }
     if (permission == LocationPermission.deniedForever) {
-      permission = await Geolocator.requestPermission();
+      // permission = await Geolocator.requestPermission();
       return Get.snackbar("47".tr, "83".tr);
     }
   }
 
   @override
   void onInit() {
-    requestPermissin();
-    fcmconfig();
+    // requestPermissin();
+    // fcmconfig();
     requestPerLocation();
     String? sharedPrefLang = myServices.sharedPreferences.getString("lang");
     if (sharedPrefLang == "ar") {

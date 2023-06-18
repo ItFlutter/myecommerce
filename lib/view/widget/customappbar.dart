@@ -25,7 +25,7 @@ class CustomAppBar extends StatelessWidget {
             child: TextFormField(
           controller: mycontroller,
           onChanged: onChanged,
-          style: const TextStyle(height: 1.3),
+          style: const TextStyle(height: 0.9),
           decoration: InputDecoration(
               hintText: titleappbar,
               hintStyle: const TextStyle(fontWeight: FontWeight.w500),
@@ -36,7 +36,7 @@ class CustomAppBar extends StatelessWidget {
               fillColor: Colors.grey[200],
               filled: true,
               border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(20),
                   borderSide: BorderSide.none)),
         )),
         // const SizedBox(
@@ -59,10 +59,11 @@ class CustomAppBar extends StatelessWidget {
           width: 10,
         ),
         Container(
-          height: 60,
+          margin: EdgeInsets.only(right: 15),
+          height: 55,
           width: 55,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10), color: Colors.grey[200]),
+              borderRadius: BorderRadius.circular(40), color: Colors.grey[200]),
           child: IconButton(
               icon: Icon(
                 Icons.favorite_border_outlined,

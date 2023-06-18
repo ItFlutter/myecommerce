@@ -9,13 +9,14 @@ class TopCardCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
-      padding: const EdgeInsets.only(bottom: 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40), color: AppColor.thridColor),
+          borderRadius: BorderRadius.circular(10),
+          color: AppColor.primaryColor),
       child: Text(
         message,
         textAlign: TextAlign.center,
-        style: const TextStyle(color: AppColor.primaryColor),
+        style: const TextStyle(color: AppColor.backgroundcolor),
       ),
     );
   }

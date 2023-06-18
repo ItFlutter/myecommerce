@@ -25,83 +25,89 @@ class CustomListItems extends GetView<ItemsControllerImp> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Hero(
-                  tag: itemsModel.itemsId!,
-                  child: CachedNetworkImage(
-                    imageUrl: "${AppLink.imageitems}/${itemsModel.itemsImage!}",
-                    width: 150,
-                    height: 130,
-                    fit: BoxFit.contain,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Hero(
+                    tag: itemsModel.itemsId!,
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          "${AppLink.imageitems}/${itemsModel.itemsImage!}",
+                      width: 150,
+                      height: 130,
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                    "${translateDatabase(itemsModel.itemsNameAr, itemsModel.itemsName)}",
-                    style: const TextStyle(
-                        fontSize: 15,
-                        color: AppColor.black,
-                        fontWeight: FontWeight.bold)),
-                Container(
-                  height: 30,
-                  alignment: Alignment.bottomCenter,
-                  child: Row(
+                  const SizedBox(height: 10),
+                  Text(
+                      "${translateDatabase(itemsModel.itemsNameAr, itemsModel.itemsName)}",
+                      style: const TextStyle(
+                          fontSize: 14,
+                          color: AppColor.black,
+                          fontWeight: FontWeight.bold)),
+                  Container(
+                    height: 30,
+                    alignment: Alignment.bottomCenter,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.timer_sharp,
+                          color: AppColor.grey,
+                          size: 20,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(
+                            left: 3,
+                          ),
+                          child: Text(
+                            "${controller.deliveryTime} ${"136".tr}",
+                            style: const TextStyle(fontFamily: "sans"),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
-                        Icons.timer_sharp,
-                        color: AppColor.grey,
-                        size: 20,
+                      Text(
+                        "${itemsModel.itemsPriceDiscount} \$",
+                        style: const TextStyle(
+                            color: AppColor.primaryColor, fontFamily: "sans"),
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(
-                          left: 3,
-                        ),
-                        child: Text(
-                          "${controller.deliveryTime} ${"136".tr}",
-                          style: const TextStyle(fontFamily: "sans"),
-                        ),
+                      GetBuilder<FavoriteControllerImp>(
+                        builder: (controller) => IconButton(
+                            onPressed: () {
+                              if (controller.isFavorite[itemsModel.itemsId] ==
+                                  "1") {
+                                controller.setFavorite(
+                                    itemsModel.itemsId!, "0");
+
+                                controller.removeFavorite(itemsModel.itemsId!);
+                              } else {
+                                controller.setFavorite(
+                                    itemsModel.itemsId!, "1");
+                                controller.addFavorite(itemsModel.itemsId!);
+                              }
+                              // controller.setFavorite(
+                              //     itemsModel.itemsId!,
+                              //     controller.isFavorite[itemsModel.itemsId] == "1"
+                              //         ? "0"
+                              //         : "1");
+                            },
+                            icon: Icon(
+                              controller.isFavorite[itemsModel.itemsId] == "1"
+                                  ? Icons.favorite
+                                  : Icons.favorite_border_outlined,
+                              color: AppColor.primaryColor,
+                            )),
                       )
                     ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "${itemsModel.itemsPriceDiscount} \$",
-                      style: const TextStyle(
-                          color: AppColor.primaryColor, fontFamily: "sans"),
-                    ),
-                    GetBuilder<FavoriteControllerImp>(
-                      builder: (controller) => IconButton(
-                          onPressed: () {
-                            if (controller.isFavorite[itemsModel.itemsId] ==
-                                "1") {
-                              controller.setFavorite(itemsModel.itemsId!, "0");
-
-                              controller.removeFavorite(itemsModel.itemsId!);
-                            } else {
-                              controller.setFavorite(itemsModel.itemsId!, "1");
-                              controller.addFavorite(itemsModel.itemsId!);
-                            }
-                            // controller.setFavorite(
-                            //     itemsModel.itemsId!,
-                            //     controller.isFavorite[itemsModel.itemsId] == "1"
-                            //         ? "0"
-                            //         : "1");
-                          },
-                          icon: Icon(
-                            controller.isFavorite[itemsModel.itemsId] == "1"
-                                ? Icons.favorite
-                                : Icons.favorite_border_outlined,
-                            color: AppColor.primaryColor,
-                          )),
-                    )
-                  ],
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
           if (itemsModel.itemsDiscount != "0")

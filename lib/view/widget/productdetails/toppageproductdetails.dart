@@ -13,23 +13,25 @@ class TopProductPageDetails extends GetView<ProductDetailsControllerImp> {
     return Stack(
       clipBehavior: Clip.none,
       children: [
+        // Container(
+        //   height: 180,
+        //   decoration: const BoxDecoration(
+        //     color: AppColor.primaryColor,
+        //   ),
+        // ),
         Container(
-          height: 180,
-          decoration: const BoxDecoration(
-            color: AppColor.secondryColor,
-          ),
-        ),
-        Positioned(
-          top: 30,
-          right: Get.width / 9,
-          left: Get.width / 9,
-          child: Hero(
-            tag: controller.itemsModel.itemsId!,
-            child: CachedNetworkImage(
-              imageUrl:
-                  "${AppLink.imageitems}/${controller.itemsModel.itemsImage}",
-              height: 240,
-              fit: BoxFit.fill,
+          height: 300,
+          width: double.infinity,
+          color: AppColor.grey3,
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+            child: Hero(
+              tag: controller.itemsModel.itemsId!,
+              child: CachedNetworkImage(
+                imageUrl:
+                    "${AppLink.imageitems}/${controller.itemsModel.itemsImage}",
+                fit: BoxFit.fill,
+              ),
             ),
           ),
         ),

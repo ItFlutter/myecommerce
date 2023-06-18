@@ -10,16 +10,17 @@ ThemeData themeEnglish = ThemeData(
       elevation: 0,
       iconTheme: const IconThemeData(color: AppColor.primaryColor),
       titleTextStyle: const TextStyle(
-          color: AppColor.primaryColor,
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
-          fontFamily: "PlayfairDisplay"),
+        color: AppColor.primaryColor,
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
+        // fontFamily: "Muli"
+      ),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: AppColor.primaryColor,
       // foregroundColor: AppColor.fourthColor
     ),
-    fontFamily: "PlayfairDisplay",
+    fontFamily: "Muli",
     primarySwatch: Colors.blue,
     textTheme: TextTheme(
       headline1: const TextStyle(
@@ -40,10 +41,11 @@ ThemeData themeArabic = ThemeData(
       elevation: 0,
       iconTheme: const IconThemeData(color: AppColor.primaryColor),
       titleTextStyle: const TextStyle(
-          color: AppColor.primaryColor,
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
-          fontFamily: "Cairo"),
+        color: AppColor.primaryColor,
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
+        // fontFamily: "Cairo"
+      ),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: AppColor.primaryColor),

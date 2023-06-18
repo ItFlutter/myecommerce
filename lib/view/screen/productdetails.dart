@@ -3,10 +3,10 @@ import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/view/widget/productdetails/priceandcount.dart';
-import 'package:ecommerce/view/widget/productdetails/subitemslist.dart';
 import 'package:ecommerce/view/widget/productdetails/toppageproductdetails.dart';
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
+import 'package:readmore/readmore.dart';
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({Key? key}) : super(key: key);
@@ -16,20 +16,21 @@ class ProductDetails extends StatelessWidget {
     ProductDetailsControllerImp controller =
         Get.put(ProductDetailsControllerImp());
     return Scaffold(
+      backgroundColor: Colors.white,
       bottomNavigationBar: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        height: 40,
+        margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+        height: 60,
         child: MaterialButton(
-          color: AppColor.secondryColor,
+          color: AppColor.primaryColor,
           shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10))),
+              borderRadius: BorderRadius.all(Radius.circular(20))),
           onPressed: () {
             Get.toNamed(AppRoute.cart);
           },
           child: Text(
             "135".tr,
             style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold),
+                fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
       ),
@@ -38,10 +39,15 @@ class ProductDetails extends StatelessWidget {
               statusRequest: controller.statusRequest!,
               widget: ListView(children: [
                 const TopProductPageDetails(),
-                const SizedBox(
-                  height: 80,
-                ),
+                // const SizedBox(
+                //   height: 80,
+                // ),
                 Container(
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30))),
                   padding: const EdgeInsets.all(20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +55,9 @@ class ProductDetails extends StatelessWidget {
                       Text(
                         "${controller.itemsModel.itemsName}",
                         style: Theme.of(context).textTheme.headline1!.copyWith(
-                            color: AppColor.fourthColor, fontSize: 22),
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w700),
                       ),
                       const SizedBox(
                         height: 10,
@@ -66,22 +74,27 @@ class ProductDetails extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-                      Text(
+                      ReadMoreText(
                         "${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc}",
+                        trimCollapsedText: "142".tr,
+                        trimExpandedText: "143".tr,
+                        trimLines: 4,
+                        trimMode: TrimMode.Line,
                         style: Theme.of(context).textTheme.bodyText1,
+                        colorClickableText: AppColor.primaryColor,
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Color",
-                        style: Theme.of(context).textTheme.headline1!.copyWith(
-                            color: AppColor.fourthColor, fontSize: 22),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const SubItemsList(),
+                      // const SizedBox(
+                      //   height: 10,
+                      // ),
+                      // Text(
+                      //   "Color",
+                      //   style: Theme.of(context).textTheme.headline1!.copyWith(
+                      //       color: AppColor.fourthColor, fontSize: 22),
+                      // ),
+                      // const SizedBox(
+                      //   height: 10,
+                      // ),
+                      // const SubItemsList(),
                     ],
                   ),
                 )

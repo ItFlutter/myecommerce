@@ -48,7 +48,7 @@ class CardOrderList extends GetView<OrdersPendingController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${"100".tr} : ${listdata.ordersTotalprice} \$",
+                    "${"100".tr}:${listdata.ordersTotalprice}\$",
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: AppColor.secondryColor),

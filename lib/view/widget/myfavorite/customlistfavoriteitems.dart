@@ -38,36 +38,36 @@ class CustomListFavoriteItems extends GetView<MyFavoriteControllerImp> {
                     fontSize: 15,
                     color: AppColor.black,
                     fontWeight: FontWeight.bold)),
-            Container(
-              height: 30,
-              alignment: Alignment.bottomCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "66".tr,
-                  ),
-                  Row(
-                    children: [
-                      ...List.generate(
-                          5,
-                          (index) => const Padding(
-                                padding: EdgeInsets.only(top: 7.0),
-                                child: Icon(
-                                  Icons.star,
-                                  size: 13,
-                                ),
-                              ))
-                    ],
-                  )
-                ],
-              ),
-            ),
+            // Container(
+            //   height: 30,
+            //   alignment: Alignment.bottomCenter,
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Text(
+            //         "66".tr,
+            //       ),
+            //       Row(
+            //         children: [
+            //           ...List.generate(
+            //               5,
+            //               (index) => const Padding(
+            //                     padding: EdgeInsets.only(top: 7.0),
+            //                     child: Icon(
+            //                       Icons.star,
+            //                       size: 13,
+            //                     ),
+            //                   ))
+            //         ],
+            //       )
+            //     ],
+            //   ),
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "${itemsModel.itemsPrice!} \$",
+                  "${itemsModel.itemspricediscount!} \$",
                   style: const TextStyle(
                       color: AppColor.primaryColor, fontFamily: "sans"),
                 ),

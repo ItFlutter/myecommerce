@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class AddAdressDetailsController extends GetxController {
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
   AddressData addressData = AddressData(Get.find());
   MyServices myServices = Get.find();
   late TextEditingController name;
@@ -21,26 +23,29 @@ class AddAdressDetailsController extends GetxController {
   }
 
   addAddress() async {
-    statusRequest = StatusRequest.loading;
-    update();
-    var response = await addressData.addData(
-        myServices.sharedPreferences.getString("id")!,
-        name.text,
-        city.text,
-        street.text,
-        lat.toString(),
-        long.toString());
-    print("=====================================Controller ${response}");
-    statusRequest = handlingData(response);
-    if (statusRequest == StatusRequest.success) {
-      if (response['status'] == "failure") {
-        statusRequest = StatusRequest.failure;
-      } else {
-        Get.offAllNamed(AppRoute.homepage);
-        Get.snackbar("139".tr, "140".tr);
+    var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await addressData.addData(
+          myServices.sharedPreferences.getString("id")!,
+          name.text,
+          city.text,
+          street.text,
+          lat.toString(),
+          long.toString());
+      print("=====================================Controller ${response}");
+      statusRequest = handlingData(response);
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == "failure") {
+          statusRequest = StatusRequest.failure;
+        } else {
+          Get.offAllNamed(AppRoute.homepage);
+          Get.snackbar("139".tr, "140".tr);
+        }
       }
+      update();
     }
-    update();
   }
 
   @override

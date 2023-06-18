@@ -34,7 +34,7 @@ class CustomListItemsOffer extends GetView<OffersController> {
                   child: CachedNetworkImage(
                     imageUrl: "${AppLink.imageitems}/${itemsModel.itemsImage!}",
                     width: 150,
-                    height: 130,
+                    height: 150,
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -73,10 +73,28 @@ class CustomListItemsOffer extends GetView<OffersController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "${itemsModel.itemsPriceDiscount} \$",
-                      style: const TextStyle(
-                          color: AppColor.primaryColor, fontFamily: "sans"),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "${itemsModel.itemsPrice}\$",
+                          style: TextStyle(
+                            decoration: TextDecoration.lineThrough,
+                            color: AppColor.grey,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "${itemsModel.itemsPriceDiscount}\$",
+                          style: TextStyle(
+                            color: AppColor.black,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
                     ),
                     GetBuilder<FavoriteControllerImp>(
                       builder: (controller2) => IconButton(

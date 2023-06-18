@@ -12,11 +12,10 @@ class CustomCardHome extends GetView<HomeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(
-        vertical: 20,
-      ),
+      margin: const EdgeInsets.only(top: 20, bottom: 20, right: 15),
       height: 150,
       child: Stack(
+        textDirection: TextDirection.ltr,
         children: [
           Container(
             alignment: Alignment.center,
@@ -27,24 +26,38 @@ class CustomCardHome extends GetView<HomeControllerImp> {
             child: ListTile(
               title: Text(
                 title!,
-                style: const TextStyle(color: Colors.white, fontSize: 20),
+                textDirection: TextDirection.ltr,
+                style: const TextStyle(color: Colors.white, fontSize: 15),
               ),
               subtitle: Text(
                 body!,
+                textDirection: TextDirection.ltr,
                 style: const TextStyle(color: Colors.white, fontSize: 30),
               ),
             ),
           ),
           Positioned(
-            bottom: 10,
-            // left: controller.lang == "en" ? 210 : null,
-            right: controller.lang == "ar" ? 210 : -25,
+            bottom: 70,
+            left: 170,
+            // right: controller.lang == "ar" ? 210 : null,
             child: Container(
-              width: 150,
-              height: 150,
+              width: 200,
+              height: 200,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(150),
-                  color: AppColor.secondryColor),
+                  color: Colors.white10),
+            ),
+          ),
+          Positioned(
+            bottom: -190,
+            // right: controller.lang == "ar" ? 100 : null,
+            // right: controller.lang == "ar" ? 210 : null,
+            child: Container(
+              width: 220,
+              height: 220,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(150),
+                  color: Colors.white10),
             ),
           ),
         ],

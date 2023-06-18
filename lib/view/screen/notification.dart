@@ -18,10 +18,10 @@ class NotificationView extends StatelessWidget {
                   statusRequest: controller.statusRequest,
                   widget: ListView(
                     children: [
-                      const Center(
+                      Center(
                         child: Text(
-                          "Notification",
-                          style: TextStyle(
+                          "134".tr,
+                          style: const TextStyle(
                               color: AppColor.primaryColor,
                               fontWeight: FontWeight.bold,
                               fontSize: 18),
@@ -41,9 +41,9 @@ class NotificationView extends StatelessWidget {
                                           "${controller.data[index]['notification_title']}"),
                                       subtitle: Text(controller.data[index]
                                           ['notification_body']),
-                                    ),
-                                    Positioned(
-                                        right: 20,
+                                      trailing: Container(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 30),
                                         child: Text(
                                           Jiffy(
                                                   controller.data[index]
@@ -53,14 +53,24 @@ class NotificationView extends StatelessWidget {
                                           style: const TextStyle(
                                               color: AppColor.primaryColor,
                                               fontWeight: FontWeight.bold),
-                                        ))
+                                        ),
+                                      ),
+                                    ),
+                                    // Positioned(
+                                    //     right: 20,
+                                    //     child: Text(
+                                    //       Jiffy(
+                                    //               controller.data[index]
+                                    //                   ['notification_datetime'],
+                                    //               "yyy-MM-dd")
+                                    //           .fromNow(),
+                                    //       style: const TextStyle(
+                                    //           color: AppColor.primaryColor,
+                                    //           fontWeight: FontWeight.bold),
+                                    //     ))
                                   ],
                                 ),
-                              )
-                          // )
-                          // )
-
-                          )
+                              ))
                     ],
                   ),
                 )));

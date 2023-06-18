@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/constant/imageasset.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,28 +28,34 @@ class SucessSignUp extends StatelessWidget {
       ),
       body: Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.only(top: 40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.check_circle_outline,
-                color: AppColor.primaryColor,
-                size: 200,
+              // const Icon(
+              //   Icons.check_circle_outline,
+              //   color: AppColor.primaryColor,
+              //   size: 200,
+              // ),
+              Image.asset(AppImageAsset.success),
+
+              Container(
+                padding: EdgeInsets.only(top: 70),
+                child: Text(
+                  "41".tr,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline1!
+                      .copyWith(fontSize: 25),
+                ),
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              Text(
-                "41".tr,
-                style: Theme.of(context).textTheme.headline1,
-              ),
-              Text(
-                "40".tr,
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
+              // Text(
+              //   "40".tr,
+              //   style: Theme.of(context).textTheme.bodyText1,
+              // ),
               const Spacer(),
               Container(
+                  padding: const EdgeInsets.all(10),
                   width: double.infinity,
                   child: CustomButtonAuth(
                       text: "40".tr,

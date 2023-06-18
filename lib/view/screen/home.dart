@@ -20,7 +20,10 @@ class HomePage extends StatelessWidget {
     Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => Container(
-        margin: const EdgeInsets.only(top: 10, left: 15, right: 15),
+        padding: const EdgeInsets.only(
+          top: 10,
+          left: 15,
+        ),
         child: ListView(
           children: [
             CustomAppBar(
