@@ -5,8 +5,8 @@ import '../../../core/class/crud.dart';
 class HomeData {
   Crud crud;
   HomeData(this.crud);
-  getData() async {
-    var response = await crud.postData(AppLink.homepage, {});
+  getData(String userid) async {
+    var response = await crud.postData(AppLink.homepage, {"userid": userid});
     return response.fold((l) => l, (r) => r);
   }
 

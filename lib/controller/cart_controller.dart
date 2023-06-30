@@ -32,11 +32,14 @@ class CartController extends GetxController {
         statusRequest = StatusRequest.failure;
       } else {
         Get.rawSnackbar(
-            title: "47".tr,
-            messageText: Text(
-              "76".tr,
-              style: const TextStyle(color: Colors.white),
-            ));
+          // title: "47".tr,
+          messageText: Text(
+            "76".tr,
+            style: const TextStyle(color: Colors.white),
+          ),
+          animationDuration: Duration(seconds: 1),
+          duration: Duration(seconds: 1),
+        );
       }
     }
 
@@ -54,11 +57,14 @@ class CartController extends GetxController {
         statusRequest = StatusRequest.failure;
       } else {
         Get.rawSnackbar(
-            title: "47".tr,
-            messageText: Text(
-              "77".tr,
-              style: const TextStyle(color: Colors.white),
-            ));
+          // title: "47".tr,
+          messageText: Text(
+            "77".tr,
+            style: const TextStyle(color: Colors.white),
+          ),
+          animationDuration: Duration(seconds: 1),
+          duration: Duration(seconds: 1),
+        );
       }
     }
 

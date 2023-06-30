@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/home_controller.dart';
 import 'package:ecommerce/core/class/statuscode.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/sevices/sevices.dart';
 import 'package:ecommerce/data/datasource/remote/offers_data.dart';
 import 'package:ecommerce/data/model/itemsmodel.dart';
@@ -29,6 +30,12 @@ class OffersController extends SearchMixController {
       }
     }
     update();
+  }
+
+  goToPageProductDetails(ItemsModel itemsModel) {
+    Get.toNamed(AppRoute.productdetails, arguments: {
+      "itemsModel": itemsModel,
+    });
   }
 
   @override

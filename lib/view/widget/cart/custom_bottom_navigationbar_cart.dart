@@ -1,6 +1,5 @@
 import 'package:ecommerce/controller/cart_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
-import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/view/widget/cart/buttoncart.dart';
 import 'package:ecommerce/view/widget/cart/custombuttoncoupon.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +43,7 @@ class BottomNavigationBarCart extends GetView<CartController> {
                                   isDense: true,
                                   hintText: "95".tr,
                                   contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 9, horizontal: 10)),
+                                      vertical: 7, horizontal: 10)),
                             )),
                         const SizedBox(
                           width: 5,

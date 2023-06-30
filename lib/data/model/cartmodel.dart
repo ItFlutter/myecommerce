@@ -1,7 +1,10 @@
 class CartModel {
+  String? itemstotalprice;
+  String? countitems;
   String? cartId;
   String? cartUsersid;
   String? cartItemsid;
+  String? cartOrdres;
   String? itemsId;
   String? itemsName;
   String? itemsNameAr;
@@ -14,13 +17,15 @@ class CartModel {
   String? itemsDiscount;
   String? itemsDate;
   String? itemsCat;
-  String? countitems;
-  String? itemsprice;
+  String? itemspricediscount;
 
   CartModel(
-      {this.cartId,
+      {this.itemstotalprice,
+      this.countitems,
+      this.cartId,
       this.cartUsersid,
       this.cartItemsid,
+      this.cartOrdres,
       this.itemsId,
       this.itemsName,
       this.itemsNameAr,
@@ -33,13 +38,15 @@ class CartModel {
       this.itemsDiscount,
       this.itemsDate,
       this.itemsCat,
-      this.countitems,
-      this.itemsprice});
+      this.itemspricediscount});
 
   CartModel.fromJson(Map<String, dynamic> json) {
+    itemstotalprice = json['itemstotalprice'];
+    countitems = json['countitems'];
     cartId = json['cart_id'];
     cartUsersid = json['cart_usersid'];
     cartItemsid = json['cart_itemsid'];
+    cartOrdres = json['cart_ordres'];
     itemsId = json['items_id'];
     itemsName = json['items_name'];
     itemsNameAr = json['items_name_ar'];
@@ -52,15 +59,17 @@ class CartModel {
     itemsDiscount = json['items_discount'];
     itemsDate = json['items_date'];
     itemsCat = json['items_cat'];
-    countitems = json['countitems'];
-    itemsprice = json['itemsprice'];
+    itemspricediscount = json['itemspricediscount'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['itemstotalprice'] = this.itemstotalprice;
+    data['countitems'] = this.countitems;
     data['cart_id'] = this.cartId;
     data['cart_usersid'] = this.cartUsersid;
     data['cart_itemsid'] = this.cartItemsid;
+    data['cart_ordres'] = this.cartOrdres;
     data['items_id'] = this.itemsId;
     data['items_name'] = this.itemsName;
     data['items_name_ar'] = this.itemsNameAr;
@@ -73,8 +82,7 @@ class CartModel {
     data['items_discount'] = this.itemsDiscount;
     data['items_date'] = this.itemsDate;
     data['items_cat'] = this.itemsCat;
-    data['countitems'] = this.countitems;
-    data['itemsprice'] = this.itemsprice;
+    data['itemspricediscount'] = this.itemspricediscount;
     return data;
   }
 }

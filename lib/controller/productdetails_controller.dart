@@ -2,6 +2,7 @@ import 'package:ecommerce/core/class/statuscode.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/sevices/sevices.dart';
 import 'package:ecommerce/data/datasource/remote/cart_data.dart';
+import 'package:ecommerce/data/datasource/remote/productdetails_data.dart';
 import 'package:ecommerce/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,10 +12,12 @@ abstract class ProductDetailsController extends GetxController {
 }
 
 class ProductDetailsControllerImp extends ProductDetailsController {
+  int currentImage = 0;
   // CartController cartContoller = Get.put(CartController());
   CartData cartData = CartData(Get.find());
+  ProductDetailsData productDetailsData = ProductDetailsData(Get.find());
   MyServices myServices = Get.find();
-
+  List images = [];
   late ItemsModel itemsModel;
   List subItems = [
     {
@@ -33,6 +36,12 @@ class ProductDetailsControllerImp extends ProductDetailsController {
       "active": "0",
     }
   ];
+
+  onImageChanged(int index) {
+    currentImage = index;
+    update();
+  }
+
   addItems(String itemsid) async {
     statusRequest = StatusRequest.loading;
     var response = await cartData.addCart(
@@ -49,6 +58,24 @@ class ProductDetailsControllerImp extends ProductDetailsController {
               "added To Cart",
               style: const TextStyle(color: Colors.white),
             ));
+      }
+    }
+
+    update();
+  }
+
+  getItemsImages() async {
+    statusRequest = StatusRequest.loading;
+    var response = await productDetailsData.getData(itemsModel.itemsId!);
+    print("=====================================Controller ${response}");
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "failure") {
+        statusRequest = StatusRequest.failure;
+      } else {
+        images.addAll(response['data']);
+        print("==============================================");
+        print("======================$images========================");
       }
     }
 
@@ -102,6 +129,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   initialData() async {
     statusRequest = StatusRequest.loading;
     itemsModel = Get.arguments['itemsModel'];
+    getItemsImages();
     countitems = await getCountItems(itemsModel.itemsId!);
     statusRequest = StatusRequest.success;
     update();

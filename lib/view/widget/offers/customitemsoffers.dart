@@ -19,7 +19,7 @@ class CustomListItemsOffer extends GetView<OffersController> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // controller.goToPageProductDetails(itemsModel);
+        controller.goToPageProductDetails(itemsModel);
       },
       child: Card(
           child: Stack(

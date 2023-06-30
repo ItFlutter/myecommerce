@@ -12,69 +12,75 @@ class CardOrderList extends GetView<OrdersPendingController> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "${"108".tr} : #${listdata.ordersId}",
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    Jiffy(listdata.ordersDatetime, "yyy-MM-dd").fromNow(),
-                    style: const TextStyle(
-                        color: AppColor.primaryColor,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              const Divider(),
-              Text(
-                  "${"109".tr} : ${controller.printOrderType(listdata.ordersType!)}"),
-              Text("${"110".tr} : ${listdata.ordersPrice} \$"),
-              Text("${"111".tr} : ${listdata.ordersPricedelivery} \$"),
-              Text(
-                  "${"112".tr} : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)}"),
-              Text(
-                  "${"113".tr} : ${controller.printOrderStatus(listdata.ordersStatus!)}"),
-              const Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "${"100".tr}:${listdata.ordersTotalprice}\$",
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: AppColor.secondryColor),
-                  ),
-                  MaterialButton(
-                    onPressed: () {
-                      Get.toNamed(AppRoute.ordersdetails,
-                          arguments: {'ordresmodel': listdata});
-                    },
-                    textColor: AppColor.secondryColor,
-                    color: AppColor.thridColor,
-                    child: Text("114".tr),
-                  ),
-                  if (listdata.ordersStatus == "0")
-                    MaterialButton(
-                      onPressed: () {
-                        controller.deleteOrder(listdata.ordersId!);
-                      },
-                      textColor: AppColor.secondryColor,
-                      color: AppColor.thridColor,
-                      child: Text("126".tr),
+    return InkWell(
+      onTap: () {
+        Get.toNamed(AppRoute.ordersdetails,
+            arguments: {'ordresmodel': listdata});
+      },
+      child: Card(
+        child: Container(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "${"108".tr} : #${listdata.ordersId}",
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                ],
-              )
-            ],
-          )),
+                    Text(
+                      Jiffy(listdata.ordersDatetime, "yyy-MM-dd").fromNow(),
+                      style: const TextStyle(
+                          color: AppColor.primaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                const Divider(),
+                Text(
+                    "${"109".tr} : ${controller.printOrderType(listdata.ordersType!)}"),
+                Text("${"110".tr} : ${listdata.ordersPrice} \$"),
+                Text("${"111".tr} : ${listdata.ordersPricedelivery} \$"),
+                Text(
+                    "${"112".tr} : ${controller.printPaymentMethod(listdata.ordersPaymentmethod!)}"),
+                Text(
+                    "${"113".tr} : ${controller.printOrderStatus(listdata.ordersStatus!)}"),
+                const Divider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "${"100".tr}:${listdata.ordersTotalprice}\$",
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.primaryColor),
+                    ),
+                    // MaterialButton(
+                    //   onPressed: () {
+                    //     Get.toNamed(AppRoute.ordersdetails,
+                    //         arguments: {'ordresmodel': listdata});
+                    //   },
+                    //   textColor: AppColor.grey2.withOpacity(0.7),
+                    //   color: AppColor.thridColor,
+                    //   child: Text("114".tr),
+                    // ),
+                    if (listdata.ordersStatus == "0")
+                      MaterialButton(
+                        onPressed: () {
+                          controller.deleteOrder(listdata.ordersId!);
+                        },
+                        textColor: AppColor.secondryColor,
+                        color: AppColor.thridColor,
+                        child: Text("126".tr),
+                      ),
+                  ],
+                )
+              ],
+            )),
+      ),
     );
   }
 }

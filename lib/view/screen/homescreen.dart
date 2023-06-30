@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'dart:ui';
 
+import 'package:ecommerce/controller/favorite_controller.dart';
 import 'package:ecommerce/controller/homescreen_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/routes.dart';
@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Get.toNamed(AppRoute.cart);
             },
-            child: const Icon(Icons.shopping_basket_outlined),
+            child: const Icon(Icons.shopping_cart),
           ),
           bottomNavigationBar: const CustomBottomAppBarHome(),
           body: WillPopScope(

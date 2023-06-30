@@ -22,7 +22,7 @@ class CheckOut extends StatelessWidget {
             onPressed: () {
               controller.checkout();
             },
-            color: AppColor.secondryColor,
+            color: AppColor.primaryColor,
             textColor: Colors.white,
             child: Text(
               "84".tr,
@@ -43,7 +43,7 @@ class CheckOut extends StatelessWidget {
                         "85".tr,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: AppColor.secondryColor),
+                            color: AppColor.primaryColor),
                       ),
                       InkWell(
                           onTap: () {
@@ -64,13 +64,13 @@ class CheckOut extends StatelessWidget {
                                   ? true
                                   : false)),
                       const SizedBox(
-                        height: 10,
+                        height: 25,
                       ),
                       Text(
                         "88".tr,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: AppColor.secondryColor),
+                            color: AppColor.primaryColor),
                       ),
                       Row(
                         children: [
@@ -80,7 +80,7 @@ class CheckOut extends StatelessWidget {
                             },
                             child: CardDeliveryTypecheckout(
                               title: "89".tr,
-                              imageName: AppImageAsset.deliveryImage2,
+                              imageName: AppImageAsset.deliveryImage,
                               active:
                                   controller.deliveryType == "0" ? true : false,
                             ),
@@ -91,7 +91,7 @@ class CheckOut extends StatelessWidget {
                             },
                             child: CardDeliveryTypecheckout(
                               title: "90".tr,
-                              imageName: AppImageAsset.drivethruImage,
+                              imageName: AppImageAsset.drivethruImage2,
                               active:
                                   controller.deliveryType == "1" ? true : false,
                             ),
@@ -109,7 +109,7 @@ class CheckOut extends StatelessWidget {
                                 "91".tr,
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: AppColor.secondryColor),
+                                    color: AppColor.primaryColor),
                               ),
                             ),
                             // if (controller.dataaddress.isEmpty)

@@ -12,7 +12,7 @@ class OrdersDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     OrdersDetailsController controller = Get.put(OrdersDetailsController());
     return Scaffold(
-      appBar: AppBar(title: const Text("Orders Details")),
+      appBar: AppBar(title: Text("147".tr)),
       body: Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: GetBuilder<OrdersDetailsController>(
@@ -26,23 +26,23 @@ class OrdersDetails extends StatelessWidget {
                       children: [
                         Table(
                           children: [
-                            const TableRow(children: [
+                            TableRow(children: [
                               Text(
-                                "Item",
+                                "148".tr,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: AppColor.primaryColor),
                               ),
                               Text(
-                                "QTY",
+                                "149".tr,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: AppColor.primaryColor),
                               ),
                               Text(
-                                "Price",
+                                "97".tr,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,

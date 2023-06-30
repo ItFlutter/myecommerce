@@ -7,6 +7,7 @@ class CustomAppBar extends StatelessWidget {
   final void Function()? onPressedIconFavotite;
   final void Function(String)? onChanged;
   final TextEditingController? mycontroller;
+  final IconData? iconData;
   const CustomAppBar(
       {Key? key,
       required this.titleappbar,
@@ -14,7 +15,8 @@ class CustomAppBar extends StatelessWidget {
       // this.onPressedIcon,
       required this.onPressedIconFavotite,
       required this.onChanged,
-      required this.mycontroller})
+      required this.mycontroller,
+      required this.iconData})
       : super(key: key);
 
   @override
@@ -66,7 +68,7 @@ class CustomAppBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(40), color: Colors.grey[200]),
           child: IconButton(
               icon: Icon(
-                Icons.favorite_border_outlined,
+                iconData,
                 color: Colors.grey[600],
                 size: 26,
               ),

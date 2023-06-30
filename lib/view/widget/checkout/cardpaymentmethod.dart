@@ -18,14 +18,14 @@ class CardPaymentMethodCheckout extends StatelessWidget {
         right: 10,
       ),
       decoration: BoxDecoration(
-          color: isActive ? AppColor.secondryColor : AppColor.thridColor,
-          borderRadius: BorderRadius.circular(20)),
+          color: isActive
+              ? AppColor.primaryColor
+              : AppColor.grey2.withOpacity(0.2),
+          borderRadius: BorderRadius.circular(5)),
       child: Text(
         title,
         style: TextStyle(
-            color: isActive ? Colors.white : AppColor.secondryColor,
-            height: 1,
-            fontWeight: FontWeight.bold),
+            color: Colors.white, height: 1, fontWeight: FontWeight.bold),
       ),
     );
   }

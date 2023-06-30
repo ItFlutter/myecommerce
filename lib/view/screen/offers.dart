@@ -21,12 +21,13 @@ class OffersView extends StatelessWidget {
               child: ListView(
                 children: [
                   CustomAppBar(
+                      iconData: Icons.notifications_active_outlined,
                       onChanged: (val) {
                         controller.checkSearch(val);
                       },
                       mycontroller: controller.search,
                       onPressedIconFavotite: () {
-                        Get.toNamed(AppRoute.myFavorite);
+                        Get.toNamed(AppRoute.notification);
                       },
                       titleappbar: "56".tr,
                       // onPressedIcon: () {},

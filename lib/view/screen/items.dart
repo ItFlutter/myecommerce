@@ -23,6 +23,7 @@ class Items extends StatelessWidget {
         child: ListView(
           children: [
             CustomAppBar(
+                iconData: Icons.favorite_border_outlined,
                 onChanged: (val) {
                   controller.checkSearch(val);
                 },

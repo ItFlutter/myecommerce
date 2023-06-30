@@ -42,61 +42,91 @@ class ProductDetails extends StatelessWidget {
                 // const SizedBox(
                 //   height: 80,
                 // ),
-                Container(
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30))),
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "${controller.itemsModel.itemsName}",
-                        style: Theme.of(context).textTheme.headline1!.copyWith(
-                            color: Colors.black,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w700),
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30))),
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "${controller.itemsModel.itemsName}",
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline1!
+                                .copyWith(
+                                    color: Colors.black,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w700),
+                          ),
+
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          PriceAndCountItems(
+                              onAdd: () {
+                                controller.add();
+                              },
+                              onRemove: () {
+                                controller.remove();
+                              },
+                              count: "${controller.countitems}",
+                              price:
+                                  "${controller.itemsModel.itemsPriceDiscount}"),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          ReadMoreText(
+                            "${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc}",
+                            trimCollapsedText: "142".tr,
+                            trimExpandedText: "143".tr,
+                            trimLines: 4,
+                            trimMode: TrimMode.Line,
+                            style: Theme.of(context).textTheme.bodyText1,
+                            colorClickableText: AppColor.primaryColor,
+                          ),
+                          // const SizedBox(
+                          //   height: 10,
+                          // ),
+                          // Text(
+                          //   "Color",
+                          //   style: Theme.of(context).textTheme.headline1!.copyWith(
+                          //       color: AppColor.fourthColor, fontSize: 22),
+                          // ),
+                          // const SizedBox(
+                          //   height: 10,
+                          // ),
+                          // const SubItemsList(),
+                        ],
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      PriceAndCountItems(
-                          onAdd: () {
-                            controller.add();
-                          },
-                          onRemove: () {
-                            controller.remove();
-                          },
-                          count: "${controller.countitems}",
-                          price: "${controller.itemsModel.itemsPriceDiscount}"),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      ReadMoreText(
-                        "${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc}",
-                        trimCollapsedText: "142".tr,
-                        trimExpandedText: "143".tr,
-                        trimLines: 4,
-                        trimMode: TrimMode.Line,
-                        style: Theme.of(context).textTheme.bodyText1,
-                        colorClickableText: AppColor.primaryColor,
-                      ),
-                      // const SizedBox(
-                      //   height: 10,
-                      // ),
-                      // Text(
-                      //   "Color",
-                      //   style: Theme.of(context).textTheme.headline1!.copyWith(
-                      //       color: AppColor.fourthColor, fontSize: 22),
-                      // ),
-                      // const SizedBox(
-                      //   height: 10,
-                      // ),
-                      // const SubItemsList(),
-                    ],
-                  ),
+                    ),
+                    // Positioned(
+                    //   right: 0,
+                    //   bottom: 180,
+                    //   child: Container(
+                    //     width: 75,
+                    //     height: 55,
+                    //     decoration: BoxDecoration(
+                    //         color: AppColor.thridColor.withOpacity(0.5),
+                    //         borderRadius: BorderRadius.only(
+                    //             topLeft: Radius.circular(25),
+                    //             bottomLeft: Radius.circular(20))),
+                    //     // alignment: Alignment.centerRight,
+                    //     child: Icon(
+                    //       Icons.favorite,
+                    //       color: controller.itemsModel.favorite == "1"
+                    //           ? AppColor.thridColor
+                    //           : AppColor.grey2,
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
                 )
               ]))),
     );

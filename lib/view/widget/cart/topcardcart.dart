@@ -11,8 +11,7 @@ class TopCardCart extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20),
       padding: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: AppColor.primaryColor),
+          borderRadius: BorderRadius.circular(2), color: AppColor.primaryColor),
       child: Text(
         message,
         textAlign: TextAlign.center,

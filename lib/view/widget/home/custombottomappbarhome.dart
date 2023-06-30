@@ -1,4 +1,8 @@
+import 'package:ecommerce/controller/favorite_controller.dart';
+import 'package:ecommerce/controller/home_controller.dart';
 import 'package:ecommerce/controller/homescreen_controller.dart';
+import 'package:ecommerce/controller/myfavoritecontroller.dart';
+import 'package:ecommerce/controller/offers_controller.dart';
 import 'package:ecommerce/view/widget/home/custombuttonappbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,6 +26,10 @@ class CustomBottomAppBarHome extends StatelessWidget {
                           // textbutton: controller.bottomappbar[i]['title'],
                           onPressed: () {
                             controller.changePage(i);
+                            Get.delete<MyFavoriteControllerImp>();
+                            Get.delete<OffersController>();
+                            Get.delete<FavoriteControllerImp>();
+                            Get.delete<HomeControllerImp>();
                           },
                           active: controller.currentPage == i ? true : false,
                           icondata: controller.bottomappbar[i]['icon'],

@@ -21,6 +21,7 @@ import 'view/screen/address/adddetails.dart';
 import 'view/screen/auth/login.dart';
 import 'view/screen/cart.dart';
 import 'view/screen/homescreen.dart';
+import 'view/screen/notification.dart';
 import 'view/screen/onboarding.dart';
 import 'view/screen/orders/archive.dart';
 import 'view/screen/productdetails.dart';
@@ -58,4 +59,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
   GetPage(name: AppRoute.ordersdetails, page: () => const OrdersDetails()),
   GetPage(name: AppRoute.ordersarchive, page: () => const OrdersArchiveView()),
+  //Notification
+  GetPage(name: AppRoute.notification, page: () => const NotificationView()),
 ];

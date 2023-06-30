@@ -1,5 +1,5 @@
 import 'package:ecommerce/view/screen/home.dart';
-import 'package:ecommerce/view/screen/notification.dart';
+import 'package:ecommerce/view/screen/myfavorite.dart';
 import 'package:ecommerce/view/screen/offers.dart';
 import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,8 @@ abstract class HomeScreenController extends GetxController {
 class HomeScreenControllerImp extends HomeScreenController {
   List<Widget> listPage = const [
     HomePage(),
-    NotificationView(),
+    // NotificationView(),
+    MyFavorite(),
     OffersView(),
     Settingss()
   ];
@@ -23,7 +24,7 @@ class HomeScreenControllerImp extends HomeScreenController {
     },
     {
       "title": "69".tr,
-      "icon": Icons.notifications_active_outlined,
+      "icon": Icons.favorite_border_outlined,
     },
     {
       "title": "128".tr,

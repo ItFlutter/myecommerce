@@ -14,6 +14,8 @@ import 'package:get/get.dart';
 // }
 
 class HomeControllerImp extends SearchMixController {
+  bool focus = false;
+
   String? lang;
   List categories = [];
   List items = [];
@@ -26,6 +28,11 @@ class HomeControllerImp extends SearchMixController {
   MyServices myServices = Get.find();
   String? username;
   String? id;
+  onHighlightChanged(bool value) {
+    focus = value;
+    update();
+  }
+
   initialData() {
     lang = myServices.sharedPreferences.getString("lang");
     username = myServices.sharedPreferences.getString("username");
@@ -35,7 +42,8 @@ class HomeControllerImp extends SearchMixController {
   getData() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await homeData.getData();
+    var response =
+        await homeData.getData(myServices.sharedPreferences.getString("id")!);
 
     print("=====================================Controller ${response}");
     statusRequest = handlingData(response);
@@ -47,6 +55,7 @@ class HomeControllerImp extends SearchMixController {
       } else {
         categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
+        items = items.reversed.toList();
         settingsData.addAll(response['settings']['data']);
         itemstopselling.addAll(response['itemstopselling']['data'] ?? []);
         titleHomeCard = settingsData['settings_titlehome'];

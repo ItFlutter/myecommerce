@@ -2,6 +2,7 @@ import 'package:ecommerce/core/class/statuscode.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/sevices/sevices.dart';
 import 'package:ecommerce/data/datasource/remote/auth/login.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,8 +66,8 @@ class LoginControllerImp extends LoginController {
             myServices.sharedPreferences
                 .setString("phone", "${response['data']['users_phone']}");
             myServices.sharedPreferences.setString("step", "2");
-            // FirebaseMessaging.instance.subscribeToTopic("users");
-            // FirebaseMessaging.instance.subscribeToTopic("users$userid");
+            FirebaseMessaging.instance.subscribeToTopic("users");
+            FirebaseMessaging.instance.subscribeToTopic("users$userid");
             print(
                 "============================ Topic ====================================");
             print("Subscribe To Topic users and users$userid");

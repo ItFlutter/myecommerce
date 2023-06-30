@@ -16,6 +16,7 @@ class ListCategoriesHome extends GetView<HomeControllerImp> {
       height: 90,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
+          padding: EdgeInsets.only(left: 10, right: 10),
           itemBuilder: (context, index) {
             return Categories(
               Categoriesmodel.fromJson(controller.categories[index]),

@@ -12,7 +12,11 @@ class CustomCardHome extends GetView<HomeControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 20, bottom: 20, right: 15),
+      margin: const EdgeInsets.only(
+        top: 20,
+        bottom: 20,
+        right: 15,
+      ),
       height: 150,
       child: Stack(
         textDirection: TextDirection.ltr,

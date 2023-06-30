@@ -34,7 +34,9 @@ class FavoriteControllerImp extends FavoriteController {
       } else {
         // data.addAll(response['data']);
         Get.rawSnackbar(
-            title: "47".tr,
+            // title: "47".tr,
+            animationDuration: Duration(seconds: 1),
+            duration: Duration(seconds: 1),
             messageText: Text(
               "67".tr,
               style: const TextStyle(color: Colors.white),
@@ -57,7 +59,9 @@ class FavoriteControllerImp extends FavoriteController {
       } else {
         // data.addAll(response['data']);
         Get.rawSnackbar(
-            title: "47".tr,
+            // title: "47".tr,
+            animationDuration: Duration(seconds: 1),
+            duration: Duration(seconds: 1),
             messageText: Text(
               "68".tr,
               style: const TextStyle(color: Colors.white),

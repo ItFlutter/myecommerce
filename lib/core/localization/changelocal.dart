@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../sevices/sevices.dart';
 
 class LocaleController extends GetxController {
+  String lang = "en";
   ThemeData appTheme = themeEnglish;
   Locale? language;
   MyServices myServices = Get.find();
@@ -16,6 +17,7 @@ class LocaleController extends GetxController {
     Get.changeTheme(appTheme);
     myServices.sharedPreferences.setString("lang", langcode);
     Get.updateLocale(locale);
+    update();
   }
 
   requestPerLocation() async {
@@ -41,8 +43,8 @@ class LocaleController extends GetxController {
 
   @override
   void onInit() {
-    // requestPermissin();
-    // fcmconfig();
+    requestPermissin();
+    fcmconfig();
     requestPerLocation();
     String? sharedPrefLang = myServices.sharedPreferences.getString("lang");
     if (sharedPrefLang == "ar") {

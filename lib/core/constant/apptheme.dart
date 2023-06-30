@@ -49,7 +49,7 @@ ThemeData themeArabic = ThemeData(
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: AppColor.primaryColor),
-    fontFamily: "Cairo",
+    // fontFamily: "Cairo",
     primarySwatch: Colors.blue,
     textTheme: TextTheme(
       headline1: const TextStyle(

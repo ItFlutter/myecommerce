@@ -10,13 +10,20 @@ class AppImageAsset {
   static const String onBoardingimageTwo = "$rootImages/two1.PNG";
   static const String onBoardingimageThree = "$rootImages/three1.PNG";
   static const String loading = "$rootLottie/loading.json";
+  static const String loading2 = "$rootLottie/cart.json";
   static const String offline = "$rootLottie/offline.json";
   static const String noData = "$rootLottie/nodata.json";
   static const String server = "$rootLottie/server.json";
   static const String avatar = "$rootImages/avatar.png";
   static const String saleOne = "$rootImages/sale.png";
   static const String deliveryImage2 = "$rootImages/006-delivery.png";
+  static const String deliveryImage = "$rootImages/delivery.png";
   static const String drivethruImage = "$rootImages/drivethru.png";
+  static const String drivethruImage2 = "$rootImages/drivethru2.png";
   static const String success = "$rootImages/success.png";
+  static const String arabic = "$rootImages/arabic.png";
+  static const String english = "$rootImages/english.png";
+  static const String translate = "$rootImages/translate.png";
+  static const String languageLogo = "$rootImages/lang-logo.png";
   // static const String onBoardingimageFour = "$rootImages/onboardingfour.PNG";
 }

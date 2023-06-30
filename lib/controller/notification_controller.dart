@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/class/statuscode.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/sevices/sevices.dart';
 import 'package:ecommerce/data/datasource/remote/notification_data.dart';
@@ -9,6 +10,7 @@ class NotificationController extends GetxController {
   List data = [];
   late StatusRequest statusRequest;
   MyServices myServices = Get.find();
+
   getData() async {
     statusRequest = StatusRequest.loading;
     data.clear();
@@ -24,6 +26,10 @@ class NotificationController extends GetxController {
       }
     }
     update();
+  }
+
+  goToOrdersPending() {
+    Get.toNamed(AppRoute.orderspending);
   }
 
   @override
