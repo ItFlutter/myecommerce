@@ -211,7 +211,7 @@ class MyTranslation extends Translations {
           "48": "Do You Want To Exit The app",
           "49": "Confirm",
           "50": "Cancel",
-          "51": "Email Or Password Not Correct",
+          "51": "Email OR Password Not Correct",
           "52": "Phone Number Or Email Already Exists",
           "53": "Verify Code Not Correct",
           "54": "Email Not Found",

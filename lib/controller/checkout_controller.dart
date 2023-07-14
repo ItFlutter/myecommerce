@@ -88,7 +88,7 @@ class CheckoutController extends GetxController {
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
         Get.snackbar("38".tr, "122".tr);
-        Get.offAllNamed(AppRoute.homepage);
+        await Get.offAllNamed(AppRoute.homepage);
       } else {
         // statusRequest = StatusRequest.failure;
         Get.snackbar("118".tr, "123".tr);

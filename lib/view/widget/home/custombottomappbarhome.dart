@@ -29,7 +29,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                             Get.delete<MyFavoriteControllerImp>();
                             Get.delete<OffersController>();
                             Get.delete<FavoriteControllerImp>();
-                            Get.delete<HomeControllerImp>();
+                            // Get.delete<HomeControllerImp>();
                           },
                           active: controller.currentPage == i ? true : false,
                           icondata: controller.bottomappbar[i]['icon'],

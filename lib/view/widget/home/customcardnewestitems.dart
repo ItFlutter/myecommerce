@@ -102,37 +102,37 @@ class CustomCardtheNewestItems extends GetView<HomeControllerImp> {
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
                           ),
-                          GetBuilder<FavoriteControllerImp>(
-                            builder: (controller2) => IconButton(
-                                onPressed: () {
-                                  if (controller2
-                                          .isFavorite[itemsModel.itemsId] ==
-                                      "1") {
-                                    controller2.setFavorite(
-                                        itemsModel.itemsId!, "0");
+                          // GetBuilder<FavoriteControllerImp>(
+                          //   builder: (controller2) => IconButton(
+                          //       onPressed: () {
+                          //         if (controller2
+                          //                 .isFavorite[itemsModel.itemsId] ==
+                          //             "1") {
+                          //           controller2.setFavorite(
+                          //               itemsModel.itemsId!, "0");
 
-                                    controller2
-                                        .removeFavorite(itemsModel.itemsId!);
-                                  } else {
-                                    controller2.setFavorite(
-                                        itemsModel.itemsId!, "1");
-                                    controller2
-                                        .addFavorite(itemsModel.itemsId!);
-                                  }
-                                  // controller.setFavorite(
-                                  //     itemsModel.itemsId!,
-                                  //     controller.isFavorite[itemsModel.itemsId] == "1"
-                                  //         ? "0"
-                                  //         : "1");
-                                },
-                                icon: Icon(
-                                  controller2.isFavorite[itemsModel.itemsId] ==
-                                          "1"
-                                      ? Icons.favorite
-                                      : Icons.favorite_border_outlined,
-                                  color: AppColor.primaryColor,
-                                )),
-                          )
+                          //           controller2
+                          //               .removeFavorite(itemsModel.itemsId!);
+                          //         } else {
+                          //           controller2.setFavorite(
+                          //               itemsModel.itemsId!, "1");
+                          //           controller2
+                          //               .addFavorite(itemsModel.itemsId!);
+                          //         }
+                          //         // controller.setFavorite(
+                          //         //     itemsModel.itemsId!,
+                          //         //     controller.isFavorite[itemsModel.itemsId] == "1"
+                          //         //         ? "0"
+                          //         //         : "1");
+                          //       },
+                          //       icon: Icon(
+                          //         controller2.isFavorite[itemsModel.itemsId] ==
+                          //                 "1"
+                          //             ? Icons.favorite
+                          //             : Icons.favorite_border_outlined,
+                          //         color: AppColor.primaryColor,
+                          //       )),
+                          // )
                         ],
                       )
                     ],

@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeControllerImp());
-    FavoriteControllerImp controllerFav = Get.put(FavoriteControllerImp());
+    // FavoriteControllerImp controllerFav = Get.put(FavoriteControllerImp());
 
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => ListView(
@@ -83,9 +83,9 @@ class HomePage extends StatelessWidget {
                               // physics: NeverScrollableScrollPhysics(),
                               itemCount: 4,
                               itemBuilder: ((context, index) {
-                                controllerFav.isFavorite[
-                                        '${controller.items[index]['items_id']}'] =
-                                    controller.items[index]['favorite'];
+                                // controllerFav.isFavorite[
+                                //         '${controller.items[index]['items_id']}'] =
+                                //     controller.items[index]['favorite'];
                                 return CustomCardtheNewestItems(
                                   itemsModel: ItemsModel.fromJson(
                                       controller.items[index]),
@@ -108,10 +108,10 @@ class HomePage extends StatelessWidget {
                               // physics: NeverScrollableScrollPhysics(),
                               itemCount: controller.itemstopselling.length,
                               itemBuilder: ((context, index) {
-                                controllerFav.isFavorite[
-                                        '${controller.itemstopselling[index]['items_id']}'] =
-                                    controller.itemstopselling[index]
-                                        ['favorite'];
+                                // controllerFav.isFavorite[
+                                //         '${controller.itemstopselling[index]['items_id']}'] =
+                                //     controller.itemstopselling[index]
+                                //         ['favorite'];
                                 return CustomCardtheNewestItems(
                                   itemsModel: ItemsModel.fromJson(
                                       controller.itemstopselling[index]),
