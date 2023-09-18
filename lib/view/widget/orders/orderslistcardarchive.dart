@@ -29,7 +29,7 @@ class CardOrderListArchive extends GetView<OrdersArchiveController> {
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    Jiffy(listdata.ordersDatetime, "yyy-MM-dd").fromNow(),
+                    Jiffy(listdata.ordersDatetime).fromNow(),
                     style: const TextStyle(
                         color: AppColor.primaryColor,
                         fontWeight: FontWeight.bold),
@@ -55,23 +55,35 @@ class CardOrderListArchive extends GetView<OrdersArchiveController> {
                         fontWeight: FontWeight.bold,
                         color: AppColor.secondryColor),
                   ),
-                  MaterialButton(
-                    onPressed: () {
-                      Get.toNamed(AppRoute.ordersdetails,
-                          arguments: {'ordresmodel': listdata});
-                    },
-                    textColor: AppColor.secondryColor,
-                    color: AppColor.thridColor,
-                    child: Text("114".tr),
-                  ),
-                  if (listdata.ordersRating == "0")
-                    MaterialButton(
+                  Container(
+                    width: 80,
+                    child: MaterialButton(
                       onPressed: () {
-                        showDialogRating(context, listdata.ordersId!);
+                        Get.toNamed(AppRoute.ordersdetails,
+                            arguments: {'ordresmodel': listdata});
                       },
                       textColor: AppColor.secondryColor,
                       color: AppColor.thridColor,
-                      child: Text("66".tr),
+                      child: Text(
+                        "114".tr,
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ),
+                  ),
+                  if (listdata.ordersRating == "0")
+                    Container(
+                      width: 80,
+                      child: MaterialButton(
+                        onPressed: () {
+                          showDialogRating(context, listdata.ordersId!);
+                        },
+                        textColor: AppColor.secondryColor,
+                        color: AppColor.thridColor,
+                        child: Text(
+                          "66".tr,
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
                     ),
                 ],
               )

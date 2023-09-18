@@ -9,6 +9,8 @@ class OrdersPending extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("======================================");
+    print(Get.currentRoute);
     Get.put(OrdersPendingController());
     return Scaffold(
       appBar: AppBar(

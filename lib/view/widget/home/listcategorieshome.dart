@@ -50,7 +50,7 @@ class Categories extends GetView<HomeControllerImp> {
                 borderRadius: BorderRadius.circular(20),
                 color: AppColor.primaryColor),
             width: 65,
-            height: 70,
+            height: 60,
             child: SvgPicture.network(
               "${AppLink.imagecategories}/${categoriesmodel.categoriesImage}",
               color: AppColor.backgroundcolor,

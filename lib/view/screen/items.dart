@@ -15,6 +15,7 @@ class Items extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("===================${Get.currentRoute} =======================");
     ItemsControllerImp controller = Get.put(ItemsControllerImp());
     FavoriteControllerImp controllerFav = Get.put(FavoriteControllerImp());
     return Scaffold(

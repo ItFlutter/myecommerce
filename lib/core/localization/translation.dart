@@ -90,7 +90,7 @@ class MyTranslation extends Translations {
           "83": "لا يمكن استعمال التطبيق من دون الموقع",
           "84": "الدفع",
           "85": "اختر طريقة الدفع",
-          "86": "الدفع عند الاستلام",
+          "86": "الدفع كاش",
           "87": "بطاقات الدفع",
           "88": "اختر نوع التوصيل",
           "89": "توصيل",
@@ -157,6 +157,9 @@ class MyTranslation extends Translations {
           "149": "الكمية",
           "150": "اختر لغتك المفضلة",
           "151": "الرجاء اختيار لغتك",
+          "152": "لائحة التقييم",
+          "153": "اضغط على نجمة لتعيين تقييمك",
+          "154": "حدث خطأ ما",
         },
         "en": {
           "1": "Choose Language",
@@ -247,7 +250,7 @@ class MyTranslation extends Translations {
           "83": "The application cannot be used without the location service.",
           "84": "Checkout",
           "85": "Choose Payment Method",
-          "86": "Cash On Delivery",
+          "86": "Cash",
           "87": "Payment Cards",
           "88": "Choose Delivery Type",
           "89": "Delivery",
@@ -314,6 +317,9 @@ class MyTranslation extends Translations {
           "149": "Quantity",
           "150": "Choose Your Preferred Language",
           "151": "Please select Your Language",
+          "152": "Rating Dialog",
+          "153": "Tap a star to set your rating",
+          "154": "Something went wrong",
         },
       };
 }

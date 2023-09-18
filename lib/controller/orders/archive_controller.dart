@@ -31,9 +31,9 @@ class OrdersArchiveController extends GetxController {
     if (val == "0") {
       return "115".tr;
     } else if (val == "1") {
-      return "116".tr;
+      return "It has been approved and is being prepared";
     } else if (val == "2") {
-      return "127".tr;
+      return "Ready To Picked up by Delivery Man";
     } else if (val == "3") {
       return "117".tr;
     } else {

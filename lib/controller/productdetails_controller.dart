@@ -3,6 +3,7 @@ import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/sevices/sevices.dart';
 import 'package:ecommerce/data/datasource/remote/cart_data.dart';
 import 'package:ecommerce/data/datasource/remote/productdetails_data.dart';
+import 'package:ecommerce/data/datasource/remote/rating/rating_data.dart';
 import 'package:ecommerce/data/model/itemsmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,9 @@ abstract class ProductDetailsController extends GetxController {
 }
 
 class ProductDetailsControllerImp extends ProductDetailsController {
+  RatingData ratingData = RatingData(Get.find());
+  double rate = 0;
+  RxInt rateUser = 0.obs;
   int currentImage = 0;
   // CartController cartContoller = Get.put(CartController());
   CartData cartData = CartData(Get.find());
@@ -53,11 +57,14 @@ class ProductDetailsControllerImp extends ProductDetailsController {
         statusRequest = StatusRequest.failure;
       } else {
         Get.rawSnackbar(
-            title: "47".tr,
-            messageText: Text(
-              "added To Cart",
-              style: const TextStyle(color: Colors.white),
-            ));
+          // title: "47".tr,
+          messageText: Text(
+            "76".tr,
+            style: const TextStyle(color: Colors.white),
+          ),
+          animationDuration: Duration(seconds: 1),
+          duration: Duration(seconds: 1),
+        );
       }
     }
 
@@ -95,7 +102,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
         Get.rawSnackbar(
             title: "47".tr,
             messageText: Text(
-              "Removed From Cart",
+              "77".tr,
               style: const TextStyle(color: Colors.white),
             ));
       }
@@ -121,6 +128,68 @@ class ProductDetailsControllerImp extends ProductDetailsController {
         return countitems;
       }
     }
+  }
+
+  getRating() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await ratingData.getData({"id": itemsModel.itemsId});
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "success") {
+        if (response['data'] != "0") {
+          rate = double.parse(response['data']);
+        } else {
+          rate = 0;
+        }
+      }
+    }
+    update();
+  }
+
+  getUserRate() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await ratingData.getDataUserRate({
+      "itemid": itemsModel.itemsId,
+      "userid": myServices.sharedPreferences.getString("id")
+    });
+    statusRequest = handlingData(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "success") {
+        rateUser.value = int.parse(response['data']);
+      } else {
+        rateUser.value = 0;
+      }
+    }
+    update();
+  }
+
+  ratedialog(int index) {
+    rateUser.value = (index + 1);
+    updateUserRate();
+    Get.back();
+    //update rate
+  }
+
+  updateUserRate() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await ratingData.updateDataUserRate({
+      "itemid": itemsModel.itemsId,
+      "userid": myServices.sharedPreferences.getString("id"),
+      "rateuser": rateUser.value.toString()
+    });
+    statusRequest = handlingData(response);
+    print("=======================================$statusRequest");
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "success") {
+        getRating();
+      } else {
+        Get.defaultDialog(title: "47".tr, content: Text("154".tr));
+      }
+    }
+    update();
   }
 
   int countitems = 0;
@@ -152,5 +221,6 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   @override
   void onInit() {
     initialData();
+    getRating();
   }
 }
