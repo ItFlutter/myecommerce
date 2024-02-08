@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/class/statuscode.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/sevices/sevices.dart';
 import 'package:ecommerce/data/datasource/remote/orders/pending_data.dart';
@@ -9,6 +10,10 @@ class OrdersPendingController extends GetxController {
   MyServices myservices = Get.find();
   OrdersPendingData ordersPendingData = OrdersPendingData(Get.find());
   late StatusRequest statusRequest;
+  goToPageTracking(OrdersModel ordersModle) {
+    Get.toNamed(AppRoute.orderstracking,
+        arguments: {"ordresmodel": ordersModle});
+  }
 
   List<OrdersModel> data = [];
   String printOrderType(String val) {

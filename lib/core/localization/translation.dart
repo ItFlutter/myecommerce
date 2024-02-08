@@ -160,6 +160,8 @@ class MyTranslation extends Translations {
           "152": "لائحة التقييم",
           "153": "اضغط على نجمة لتعيين تقييمك",
           "154": "حدث خطأ ما",
+          "155": "تتبع",
+          "156": "تتبع الطلبات",
         },
         "en": {
           "1": "Choose Language",
@@ -320,6 +322,8 @@ class MyTranslation extends Translations {
           "152": "Rating Dialog",
           "153": "Tap a star to set your rating",
           "154": "Something went wrong",
+          "155": "Tracking",
+          "156": "Orders Tracking",
         },
       };
 }

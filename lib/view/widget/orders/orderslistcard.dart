@@ -78,6 +78,15 @@ class CardOrderList extends GetView<OrdersPendingController> {
                         color: AppColor.thridColor,
                         child: Text("126".tr),
                       ),
+                    if (listdata.ordersStatus == "3")
+                      MaterialButton(
+                        onPressed: () {
+                          controller.goToPageTracking(listdata);
+                        },
+                        textColor: AppColor.secondryColor,
+                        color: AppColor.thridColor,
+                        child: Text("155".tr),
+                      ),
                   ],
                 )
               ],

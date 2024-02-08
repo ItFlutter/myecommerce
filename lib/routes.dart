@@ -11,6 +11,7 @@ import 'package:ecommerce/view/screen/items.dart';
 import 'package:ecommerce/view/screen/language.dart';
 import 'package:ecommerce/view/screen/myfavorite.dart';
 import 'package:ecommerce/view/screen/orders/details.dart';
+import 'package:ecommerce/view/screen/orders/ordertracking.dart';
 import 'package:ecommerce/view/screen/orders/pending.dart';
 import 'package:get/get.dart';
 
@@ -61,4 +62,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.ordersarchive, page: () => const OrdersArchiveView()),
   //Notification
   GetPage(name: AppRoute.notification, page: () => const NotificationView()),
+  //Tracking
+  GetPage(name: AppRoute.orderstracking, page: () => const OrdersTracking()),
 ];
