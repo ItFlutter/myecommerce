@@ -1,13 +1,13 @@
 class AppLink {
   // static const String server = "http://172.20.10.7/ecommerce";
-  static const String server = "http://192.168.1.106/ecommerce";
+  static const String server = "http://192.168.1.108/ecommerce";
   // static const String server =
   //     "https://ahmaditecommerce.000webhostapp.com/ecommerce";
   // static const String server = "http://10.0.2.2/ecommerce";
   // ================================= Image ================================== //
 
   // static const String imagestatic = "http://172.20.10.7/ecommerce/upload";
-  static const String imagestatic = "http://192.168.1.106/ecommerce/upload";
+  static const String imagestatic = "http://192.168.1.108/ecommerce/upload";
   // static const String imagestatic =
   //     "https://ahmaditecommerce.000webhostapp.com/ecommerce/upload";
   // static const String imagestatic = "http://10.0.2.2/ecommerce/upload";

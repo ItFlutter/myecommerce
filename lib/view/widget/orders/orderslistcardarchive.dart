@@ -29,7 +29,7 @@ class CardOrderListArchive extends GetView<OrdersArchiveController> {
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    Jiffy(listdata.ordersDatetime).fromNow(),
+                    Jiffy.parse(listdata.ordersDatetime!).fromNow(),
                     style: const TextStyle(
                         color: AppColor.primaryColor,
                         fontWeight: FontWeight.bold),

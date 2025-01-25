@@ -69,7 +69,7 @@ class NotificationView extends StatelessWidget {
                                                   //     const EdgeInsets.only(
                                                   //         top: 5),
                                                   child: Text(
-                                                    Jiffy(
+                                                    Jiffy.parse(
                                                       controller.data[index][
                                                           'notification_datetime'],
                                                       // "yyy-MM-dd"

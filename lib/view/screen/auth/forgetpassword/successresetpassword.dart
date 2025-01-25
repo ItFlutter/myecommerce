@@ -20,7 +20,7 @@ class SuccessResetPassword extends StatelessWidget {
           "38".tr,
           style: Theme.of(context)
               .textTheme
-              .headline1!
+              .headlineSmall!
               .copyWith(color: AppColor.grey),
         ),
         backgroundColor: Colors.transparent,
@@ -48,7 +48,7 @@ class SuccessResetPassword extends StatelessWidget {
                   "39".tr,
                   style: Theme.of(context)
                       .textTheme
-                      .headline1!
+                      .headlineSmall!
                       .copyWith(fontSize: 25),
                 ),
               ),

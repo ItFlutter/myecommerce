@@ -59,7 +59,7 @@ class ProductDetails extends StatelessWidget {
                             "${controller.itemsModel.itemsName}",
                             style: Theme.of(context)
                                 .textTheme
-                                .headline1!
+                                .headlineSmall!
                                 .copyWith(
                                     color: Colors.black,
                                     fontSize: 22,
@@ -88,7 +88,7 @@ class ProductDetails extends StatelessWidget {
                             trimExpandedText: "143".tr,
                             trimLines: 4,
                             trimMode: TrimMode.Line,
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyMedium,
                             colorClickableText: AppColor.primaryColor,
                           ),
                           // const SizedBox(

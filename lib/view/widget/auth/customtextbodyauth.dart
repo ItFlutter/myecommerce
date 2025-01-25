@@ -9,7 +9,7 @@ class CustomTextBodyAuth extends StatelessWidget {
     return Text(
       text,
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.bodyText2,
+      style: Theme.of(context).textTheme.bodySmall,
     );
   }
 }

@@ -23,16 +23,16 @@ ThemeData themeEnglish = ThemeData(
     fontFamily: "Muli",
     primarySwatch: Colors.blue,
     textTheme: TextTheme(
-      headline1: const TextStyle(
+      headlineSmall: const TextStyle(
           fontWeight: FontWeight.w600, fontSize: 20, color: AppColor.black),
-      headline2: const TextStyle(
+      headlineMedium: const TextStyle(
           fontWeight: FontWeight.w600, fontSize: 28, color: AppColor.black),
-      bodyText1: TextStyle(
+      bodySmall: TextStyle(height: 1.7, color: AppColor.grey, fontSize: 15),
+      bodyMedium: TextStyle(
           height: 1.7,
           color: AppColor.grey,
           fontWeight: FontWeight.w500,
           fontSize: 15),
-      bodyText2: TextStyle(height: 1.7, color: AppColor.grey, fontSize: 15),
     ));
 ThemeData themeArabic = ThemeData(
     appBarTheme: AppBarTheme(
@@ -52,14 +52,14 @@ ThemeData themeArabic = ThemeData(
     // fontFamily: "Cairo",
     primarySwatch: Colors.blue,
     textTheme: TextTheme(
-      headline1: const TextStyle(
+      headlineSmall: const TextStyle(
           fontWeight: FontWeight.w600, fontSize: 20, color: AppColor.black),
-      headline2: const TextStyle(
+      headlineMedium: const TextStyle(
           fontWeight: FontWeight.w600, fontSize: 28, color: AppColor.black),
-      bodyText1: TextStyle(
+      bodySmall: TextStyle(height: 1.7, color: AppColor.grey, fontSize: 15),
+      bodyMedium: TextStyle(
           height: 1.7,
           color: AppColor.grey,
           fontWeight: FontWeight.w500,
           fontSize: 15),
-      bodyText2: TextStyle(height: 1.7, color: AppColor.grey, fontSize: 15),
     ));

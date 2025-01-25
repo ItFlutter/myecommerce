@@ -33,7 +33,7 @@ class CardOrderList extends GetView<OrdersPendingController> {
                     ),
                     // Spacer(),
                     Text(
-                      Jiffy(listdata.ordersDatetime).fromNow(),
+                      Jiffy.parse(listdata.ordersDatetime!).fromNow(),
                       style: const TextStyle(
                           color: AppColor.primaryColor,
                           fontWeight: FontWeight.bold,

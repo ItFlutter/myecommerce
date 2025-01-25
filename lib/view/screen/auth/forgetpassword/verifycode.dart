@@ -22,7 +22,7 @@ class VerifyCode extends StatelessWidget {
             "30".tr,
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .headlineSmall!
                 .copyWith(color: AppColor.grey),
           ),
           backgroundColor: Colors.transparent,
